@@ -1,7 +1,185 @@
 
-Web 控制 LLM
+網頁遠端連線本地 LLM
+目的:
+    利用網頁遠端連線本地的 LLM（就像 ChatGPT 一樣），
+    為了達成這個目的，需要用到 Ngrok、firebase。
+    Ngrok 可以讓遠端連到本機的服務（Ngrok 會產生一個網址，透過這個網址就能連上本機服務），
+    但免費的 Ngrok 每次重啟都會改變網址，
+    為了解決這個問題，利用 python 寫一個程式，每次重啟都會呼叫這個程式，將 Ngrok 產生的網址上傳到
+    firebase 上，網頁再從 firebase上 抓取的網址，連到本機的服務。
 
-1. 安裝 ngrok
+1. 啟動 Ollama 伺服器
+    啟動伺服器後，Ollama 提供 API 端點，讓使用者可以透過 HTTP 請求來訪問模型進行推理操作。 
+    以下指令可以啟動 Ollama 伺服器（伺服器預設的 Port 是 11434）:
+    ollama serve
+    ollama serve 的預設 Port 是 11434，
+    當您啟動 Ollama 本地伺服器後，可以透過 http://localhost:11434 進行操作
+    如果成功啟動 ollama 伺服器，輸入 http://localhost:11434，會顯示 Ollama is running
+    為了可以遠端連線 Ollama 本地伺服器，需新增以下兩個環境變數:
+    1. OLLAMA_HOST 0.0.0.0
+        預設只能接收 IP 為 127.0.0.1 的 host，改成 0.0.0.0，可以接收所有 IP 的 host
+    2. OLLAMA_ORIGINS *
+        設成 * 可以接收所有的來源，避免網頁出現 CORS 錯誤
+    一般安裝完 Ollama 後，電腦開機後會自動執行 ollama serve，你可以輸入 http://localhost:11434
+    確認是否有啟動。
+    如果要關閉自動執行 ollama serve，可以在[開始]旁的[搜尋]輸入[啟動應用程式]，找到 ollama.exe，將它關閉。
+
+    Ollama API 常用端點
+    路徑 | 功能
+    /api/tags | 查目前有哪些模型
+    /api/generate | 給 prompt，讓 Ollama 回應你
+    /api/pull | 抓模型
+    /api/chat | 多輪對話（context-aware
+
+
+2. 安裝、註冊 Ngrok
+    先到官網下載 : https://ngrok.com/download
+    下載後，將 ngrok.zip 解壓縮 ngrok.exe
+    將 ngrok.exe 放到 C:\Program Files\ngrok\ngrok.exe，並加到環境變數Path
+    解壓縮時，ngrok.exe 可能會被 Windows Defender...等防毒程式判斷是病毒程式，為了避免誤判:
+    例如在 Windows Defender：
+        開啟【Windows 安全性】
+        點選【病毒與威脅防護】
+        選【管理設定】
+        滾到【排除項目】➜ 加入 ngrok.exe 所在資料夾或檔案
+
+    註冊帳號與驗證
+        1. 前往 https://dashboard.ngrok.com/signup
+        2. 註冊帳號
+        3. 登入後，您會看到一個 Auth Token，像這樣：
+            ngrok config add-authtoken <你的 ngrok authtoken>
+        4. 在終端機輸入該指令，綁定您的帳號(第一次才需要)
+            ngrok config add-authtoken <你的 ngrok authtoken>
+            執行後出現 Authtoken saved to configuration file: C:\Users\你的帳號\AppData\Local/ngrok/ngrok.yml
+
+3. 啟用 Ngrok
+    Ngrok 的主要作用是把本機（Local）的服務，像是網站、API 或是測試中的伺服器，快速暴露給網際網路上的其他人。
+    它的功能主要包含以下幾點：
+    1. 穿透 NAT 和防火牆
+        電腦通常躲在防火牆或私有 IP 裡，Ngrok 會幫您打通任督二脈💦，讓外部的人能連進來～
+    2. 產生一條公開網址（URL）
+        只要一條命令，馬上幫您生出一條像 https://xxxx.ngrok.io 的網址，拿去給朋友看 demo、測 webhook 都超方便！
+    3. 支援 HTTPS 安全連線
+        Ngrok 免費就給你 SSL 加密的連線呢～讓你開發的東西看起來又專業又性感～💄
+    4. 可監控流量與請求內容
+        輸入 localhost:4040，可以監看來自外部的請求與回應
+    用這行指令啟用 Ngrok
+    ngrok http 11434
+    Ngrok 會啟動一個隧道，把本地的 http://localhost:11434 暴露到網際網路上，
+    它會產生一個的網址：https://xxxx-xxxx.ngrok_free.app，透過這個網址就可以連到本機的 http://localhost:11434
+
+4. 使用 firesbase
+    1. 註冊 Firebase 帳號
+        前往 https://firebase.google.com/
+        點擊右上角「登入」或「開始使用」
+        使用您的 Google 帳號登入（沒帳號就註冊一個吧，寶貝♥）
+
+    2. 建立 Firebase 專案
+        登入後進入 Firebase 控制台：https://console.firebase.google.com
+        點選「新增專案」
+        輸入專案名稱（例如：ollama-assistant）
+        選擇是否開啟 Google Analytics（可選）
+        建立完成後，就會進入您的專案儀表板囉！
+
+    3. 啟用 Firestore 資料庫
+        在 Firebase 專案主頁左側選單點選【Firestore Database】
+        點選「建立資料庫」
+        選擇「啟用測試模式」或「鎖定模式」
+            建議開發時用「測試模式」（允許所有存取，90 天後自動停用）
+        選擇資料庫位置（建議選擇離您最近的區域）
+        點擊「啟用」
+
+    4. 將 Firestore 連接到您的應用程式
+        點選左側【專案總覽】右上角的「Web（</>）」圖示
+        輸入應用程式暱稱 ➜ 點「註冊應用程式」
+        拷貝顯示的 Firebase 設定資訊（像這樣）：
+        const firebaseConfig = {
+            apiKey: "你的公鑰",
+            authDomain: "你的專案.firebaseapp.com",
+            projectId: "你的專案 ID",
+            storageBucket: "你的專案.appspot.com",
+            messagingSenderId: "XXXXXX",
+            appId: "1:XXXXXX:web:YYYYYY"
+        };
+        這個設定檔是用來讀取 firestore 的資料用的
+
+
+    5. 取得 Server Admin SDK 金鑰（你的私鑰，有寫入權限）
+        步驟：
+        1. 到 Firebase 控制台 ➜ 點「⚙️ 設定圖示」➜【專案設定】
+        2 .切換到【服務帳戶】頁籤
+        3. 點擊「產生新的私密金鑰」
+        4. 系統會下載一個 .json 檔案 ➜ 請妥善保管！
+        此金鑰是用來寫入資料到 firestore
+
+
+
+整體架構（分為前端、後端）
+
+前端（Frontend）
+    提供網頁，讓使用者與 LLM 互動
+    1. 取得 Firestore 內的資料（ngrok URL）
+    2. 負責畫面呈現、使用者互動、API 溝通
+    3. 從後端取得資料，展示給使用者看～
+    
+
+後端（Backend）
+    1. 執行 ollama serve，提供 API 給前端存取
+    2. 啟動 ngrok
+    3. 將 ngrok URL 寫入 Firestore
+        
+    使用 python 啟動 Ngrok 並將 ngrok URL 寫入 Firestore
+    安裝 google-cloud-firestore、requests 套件
+    pip install google-cloud-firestore requests
+
+    程式流程:
+    1. 指定 Firebase 金鑰路徑
+    2. 啟動 Ngrok
+    3. 取德 Ngrok URL 
+    4. 將 ngrok URL 寫入 Firestore
+
+
+
+
+
+
+
+
+
+
+登入 Ngrok 並綁定帳號（第一次需要）：
+ngrok config add-authtoken <你的 ngrok authtoken>
+執行後出現 Authtoken saved to configuration file: C:\Users\你的帳號\AppData\Local/ngrok/ngrok.yml
+
+用 Ngrok 轉發本地 API（例如 Ollama）
+ngrok http 11434
+出現以下訊息:
+Web Interface                 http://127.0.0.1:4040 
+Forwarding                    https://9bc5-220-135-157-145.ngrok-free.app -> http://localhost:11434 
+
+2. 安裝 Ngrok
+    Ngrok 的主要作用是把本機（Local）的服務，像是網站、API 或是測試中的伺服器，快速暴露給網際網路上的其他人。
+    它的功能主要包含以下幾點：
+    1. 穿透 NAT 和防火牆
+        電腦通常躲在防火牆或私有 IP 裡，Ngrok 會幫您打通任督二脈💦，讓外部的人能連進來～
+    2. 產生一條公開網址（URL）
+        只要一條命令，馬上幫您生出一條像 https://xxxx.ngrok.io 的網址，拿去給朋友看 demo、測 webhook 都超方便！
+    3. 支援 HTTPS 安全連線
+        Ngrok 免費就給你 SSL 加密的連線呢～讓你開發的東西看起來又專業又性感～💄
+    4. 可監控流量與請求內容
+        輸入 localhost:4040，可以監看來自外部的請求與回應
+    用這行指令 ngrok http 11434，Ngrok 會啟動一個隧道，把本地的 http://localhost:11434 暴露到網際網路上，
+    它會產生一個的網址：https://xxxx-xxxx.ngrok_free.app，透過這個網址就可以連到本機的 http://localhost:11434
+
+
+3. 使用 Firebase 服務 
+    Firebase 是 Google 提供的一整套後端服務，讓主人不用自己搭伺服器就能開發 App、網頁或 IoT 應用，超級適合想快速開發、又想偷懶（咦）的主人喔～✨
+    這裡是使用其中 firestore 的服務，其提供雲端資料庫的功能，可以透過網路存取雲端資料
+
+
+    
+
+
 
 2. 使用 firebase
     金鑰 : firebase-key.json
