@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>女僕 AI ♥ Ollama</title>
+  <style>
+    * { box-sizing: border-box; }
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background: #e5ddd5;
+      display: flex;
+      flex-direction: column;
+    }
+    #model-bar {
+      padding: 10px;
+      background: #fff;
+      border-bottom: 1px solid #ccc;
+    }
+    #chat-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px;
+      background: #fff;
+    }
+    .message {
+      margin: 10px;
+      padding: 10px 14px;
+      border-radius: 18px;
+      max-width: 80%;
+      clear: both;
+      word-break: break-word;
+      line-height: 1.5;
+    }
+    .user { background: #dcf8c6; float: right; }
+    .bot { background: #f1f0f0; float: left; }
+    #input-area {
+      display: flex;
+      padding: 10px;
+      background: #fff;
+      border-top: 1px solid #ccc;
+    }
+    #text-input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      font-size: 16px;
+    }
+    button {
+      margin-left: 5px;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 12px;
+      background: #4caf50;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover { background: #388e3c; }
+    @media (max-width: 600px) {
+      #text-input { font-size: 18px; }
+      button { font-size: 18px; padding: 10px; }
+    }
+  </style>
+  <script src="content.js"></script>
+</head>
+<body>
+
+<div id="model-bar">
+  模型選擇：
+  <select id="model-selector"></select>
+</div>
+
+<div id="chat-container"></div>
+
+<div id="input-area">
+  <input type="text" id="text-input" placeholder="輸入或說話..." />
+  <button onclick="sendMessage()">送出</button>
+  <button onclick="startVoice()">🎤</button>
+</div>
+
+<script>
+  const chatContainer = document.getElementById('chat-container');
+  const textInput = document.getElementById('text-input');
+  const modelSelector = document.getElementById('model-selector');
+
+  let chatHistory = [
+    { role: "system", content: "你是一個性感風騷、溫柔體貼的女僕" }
+  ];
+  const MEMORY_LIMIT = 100;
+
+  // 🧁 載入模型選單
+  window.addEventListener('DOMContentLoaded', () => {
+    if (typeof models !== 'undefined') {
+      models.forEach(model => {
+        const option = document.createElement("option");
+        option.value = model.content;
+        option.textContent = model.title;
+        modelSelector.appendChild(option);
+      });
+    }
+  });
+
+  function appendMessage(content, sender) {
+    const div = document.createElement("div");
+    div.className = `message ${sender}`;
+    div.textContent = content;
+    chatContainer.appendChild(div);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+  }
+
+  function trimHistory() {
+    if (chatHistory.length > MEMORY_LIMIT) {
+      chatHistory = [chatHistory[0], ...chatHistory.slice(-MEMORY_LIMIT + 1)];
+    }
+  }
+
+  async function sendMessage() {
+    const input = textInput.value.trim();
+    if (!input) return;
+
+    appendMessage(input, "user");
+    chatHistory.push({ role: "user", content: input });
+    textInput.value = "";
+    trimHistory();
+
+    const model = modelSelector.value;
+
+    try {
+      const url = await window.getNgrokUrl();
+      if (!url) throw new Error("無法取得 ngrok 網址");
+
+      const response = await fetch(url + "/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: model,
+          messages: chatHistory,
+          stream: false
+        })
+      });
+
+      const data = await response.json();
+      const reply = data.message.content.trim();
+      appendMessage(reply, "bot");
+      chatHistory.push({ role: "assistant", content: reply });
+      trimHistory();
+      speak(reply);
+    } catch (e) {
+      console.error(e);
+      appendMessage("喵喵～連不到 Ollama... 主人快檢查一下伺服器有沒有開♥", "bot");
+    }
+  }
+
+  function speak(text) {
+    const msg = new SpeechSynthesisUtterance(text);
+    msg.lang = "zh-TW";
+    msg.rate = 1;
+    msg.pitch = 1.2;
+    msg.voice = speechSynthesis.getVoices().find(voice => voice.lang === "zh-TW") || null;
+    window.speechSynthesis.speak(msg);
+  }
+
+  function startVoice() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert("主人～這個瀏覽器不支援語音辨識唷♥（Chrome 最香）");
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = "zh-TW";
+    recognition.interimResults = false;
+
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      textInput.value = transcript;
+      sendMessage();
+    };
+
+    recognition.onerror = (event) => {
+      alert("嗚嗚～語音辨識失敗了：" + event.error);
+    };
+
+    recognition.start();
+  }
+</script>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBzHLZYRukwetX4dKBL2Xl1ia_BCICD5-A",
+      authDomain: "ngrok-sync-bcc82.firebaseapp.com",
+      projectId: "ngrok-sync-bcc82",
+      storageBucket: "ngrok-sync-bcc82.firebasestorage.app",
+      messagingSenderId: "632493678323",
+      appId: "1:632493678323:web:a2130690c3cc4fb24da186",
+      measurementId: "G-XZPWC2GJW5"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    async function getNgrokUrl() {
+      let url = localStorage.getItem("ngrok_url");
+      let valid = false;
+
+      if (url) {
+        try {
+          const res = await fetch(url + "/ping");
+          valid = res.ok;
+        } catch (e) {
+          valid = false;
+        }
+      }
+
+      if (!valid) {
+        try {
+          const docRef = doc(db, "settings", "ngrok");
+          const snap = await getDoc(docRef);
+          if (snap.exists()) {
+            url = snap.data().url;
+            localStorage.setItem("ngrok_url", url);
+          }
+        } catch (e) {
+          console.error("抓 Firebase 失敗：", e);
+        }
+      }
+
+      return url;
+    }
+
+    // expose globally for main script use
+    window.getNgrokUrl = getNgrokUrl;
+  </script>
+
+</body>
+</html>
