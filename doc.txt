@@ -1,0 +1,58 @@
+
+Web 控制 LLM
+
+1. 安裝 ngrok
+
+2. 使用 firebase
+    金鑰 : firebase-key.json
+
+2. 啟動 ollama serve
+    - 新增環境變數 OLLAMA_HOST
+        將 OLLAMA_HOST 設成 0.0.0.0，接收所有 host
+    - 新增環境變數 OLLAMA_ORIGINS
+        將 OLLAMA_ORIGINS 設成 *，接受所有 origin，防止 CORS
+        
+3. 將 ngrok URL 寫到 firebase
+
+
+
+在專案目錄下建立及啟動 Python 虛擬環境
+    建立 Python 虛擬環境
+    python -m venv ./venv
+    啟動 Python 虛擬環境
+    .\venv\Scripts\activate
+
+pip install google-cloud-firestore requests
+
+
+
+
+
+
+
+修改 index.html
+1. 改成先檢查 storage 有沒有 url
+2. 沒 url，跳到3，
+    有 url，fetch(url)，如果連不上，跳到3
+3. 到 firebase 抓 url
+4. 存 url
+5. fetch(url)
+
+const firebaseConfig = {
+
+    apiKey: "AIzaSyBzHLZYRukwetX4dKBL2Xl1ia_BCICD5-A",
+
+    authDomain: "ngrok-sync-bcc82.firebaseapp.com",
+
+    projectId: "ngrok-sync-bcc82",
+
+    storageBucket: "ngrok-sync-bcc82.firebasestorage.app",
+
+    messagingSenderId: "632493678323",
+
+    appId: "1:632493678323:web:a2130690c3cc4fb24da186",
+
+    measurementId: "G-XZPWC2GJW5"
+
+    };
+
