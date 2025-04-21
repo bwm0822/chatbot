@@ -26,7 +26,24 @@ pip install google-cloud-firestore requests
 
 
 
+- 將遊戲部署到網頁上
+    部署到 GitHub Pages
 
+    1. 安裝 deploy 工具
+        npm install --save-dev gh-pages
+
+    2. 在 package.json 新增以下設定
+        "scripts": {
+            "deploy": "gh-pages -d web"
+        }
+
+    3. 一鍵發佈
+        npm run deploy
+
+        他會自動將 \web 上傳到 repository 的 gh-pages branch
+        到 github 的 Pages 頁面，將 Branch 設成 gh-pages
+        注意 : 要將 repository 設成 public
+        網址 : https://帳號.github.io/repository名稱/
 
 
 
