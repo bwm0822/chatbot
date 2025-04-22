@@ -151,6 +151,8 @@
   }
 
   function buildPromptMenu() {
+    promptMenu.innerHTML = ''; // 清空
+
     prompts.forEach(p => {
       if (Array.isArray(p.content)) {
         const submenu = document.createElement('li');
@@ -164,6 +166,18 @@
         const subMenuList = document.createElement('ul');
         subMenuList.classList.add('dropdown-menu');
 
+        link.onclick = (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+
+          // toggle 顯示子選單
+          const isVisible = subMenuList.style.display === 'block';
+          document.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(menu => {
+            menu.style.display = 'none';
+          });
+          subMenuList.style.display = isVisible ? 'none' : 'block';
+        };
+
         p.content.forEach(item => {
           const subItem = document.createElement('li');
           const subLink = document.createElement('a');
@@ -171,7 +185,7 @@
           subLink.href = '#';
           subLink.textContent = item.title;
           subLink.onclick = () => {
-            promptButton.textContent = p.title+' - '+item.title;
+            promptButton.textContent = p.title + ' - ' + item.title;
             promptButton.prompt = item.content;
             clearHistory();
           };
@@ -191,13 +205,15 @@
         a.onclick = () => {
           promptButton.textContent = p.title;
           promptButton.prompt = p.content;
-            clearHistory();
+          clearHistory();
         };
         li.appendChild(a);
         promptMenu.appendChild(li);
       }
     });
-  }
+}
+
+
 
   window.addEventListener('DOMContentLoaded', () => {
     buildModelMenu();
