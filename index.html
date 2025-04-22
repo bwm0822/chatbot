@@ -263,12 +263,12 @@
 
   function speak(text) {
     stopSpeaking();
-    const cleanText = text.replace(/\*.*?\*/g, ""); // 移除被 * 包圍的文字
+    const cleanText = text.replace(/\*.*?\*/g, ""); // 撫去羞羞字♥
     const msg = new SpeechSynthesisUtterance(cleanText);
-    msg.lang = "zh-TW";
+    // msg.lang = "zh-TW";
+    // msg.voice = speechSynthesis.getVoices().find(v => v.lang === msg.lang) || null;
     msg.rate = 1;
     msg.pitch = 1.2;
-    msg.voice = speechSynthesis.getVoices().find(voice => voice.lang === "zh-TW") || null;
     window.speechSynthesis.speak(msg);
   }
 
