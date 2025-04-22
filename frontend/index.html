@@ -13,20 +13,21 @@
       padding: 0;
       height: 100%;
       font-family: 'Segoe UI', sans-serif;
-      background: #e5ddd5;
+      background: #2c2c2c; /* 暗灰色背景 */
+      color: #e0e0e0; /* 文字顏色改為淺色 */
       display: flex;
       flex-direction: column;
     }
     #model-bar {
       padding: 10px;
-      background: #fff;
-      border-bottom: 1px solid #ccc;
+      background: #3a3a3a; /* 暗灰色背景 */
+      border-bottom: 1px solid #555;
     }
     #chat-container {
       flex: 1;
       overflow-y: auto;
       padding: 10px;
-      background: #fff;
+      background: #3a3a3a; /* 暗灰色背景 */
     }
     .message {
       margin: 10px;
@@ -37,13 +38,13 @@
       word-break: break-word;
       line-height: 1.5;
     }
-    .user { background: #dcf8c6; float: right; }
-    .bot { background: #f1f0f0; float: left; }
+    .user { background: #4caf50; /* 綠色背景 */ color: #fff; /* 白色文字 */ float: right; }
+    .bot { background: #444; /* 深灰背景 */ color: #e0e0e0; /* 淺色文字 */ float: left; }
     #input-area {
       display: flex;
       padding: 10px;
-      background: #fff;
-      border-top: 1px solid #ccc;
+      background: #3a3a3a; /* 暗灰色背景 */
+      border-top: 1px solid #555;
     }
     #text-input {
       flex: 1;
@@ -51,6 +52,8 @@
       border: 1px solid #ccc;
       border-radius: 12px;
       font-size: 16px;
+      background: #444; /* 深灰背景 */
+      color: #e0e0e0; /* 淺色文字 */
     }
     button {
       margin-left: 5px;
@@ -74,6 +77,8 @@
       margin-top: -1px;
       display: none;
       position: absolute;
+      background: #3a3a3a; /* 暗灰色背景 */
+      color: #e0e0e0; /* 淺色文字 */
     }
     .dropdown-submenu:hover > .dropdown-menu {
       display: block;
