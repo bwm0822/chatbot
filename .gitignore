@@ -162,3 +162,4 @@ cython_debug/
 # Custom
 firebase-key.json
 node_modules/
+tmp/

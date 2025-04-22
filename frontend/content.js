@@ -17,8 +17,63 @@ models = [
     },
 ]
 
+function getPrompts()
+{
+    let prompts=[{title:'聊天', content: "你是一個性感風騷、溫柔體貼的女僕，用繁中回答"}];
+    sets.forEach((set) => {
+        prompts.push({
+            "title": set.title,
+            "content": [
+                {
+                    "title": `複習`,
+                    "content": prompt_review(set.content)
+                },
+                {
+                    "title": `對話`,
+                    "content": prompt_dialog(set.content)
+                }
+            ]
+        });
+    });
+    return prompts;
+}
 
-prompts = [
+function prompt_review(content)
+{
+    return `
+        你是一位英文老師，你要幫學生複習以下的的單字/例句，
+        一次只列出一個單字/例句，不要全部列出，依序列出，
+        內容要有:
+            單字 (單字中文翻譯)
+            例句 例句中文翻譯
+        要跟複習的內容一模一樣，不得作任何修改，也不要加任何說明文字。
+
+        ${content}
+
+        1.請參考範例:
+            範例:
+            單字號碼. 單字 (單字中文翻譯)
+                        例句 例句中文翻譯
+    `;
+}
+
+
+function prompt_dialog(content)
+{
+    return `
+        你是一個英文老師，你在跟一個小學生練習英文對話。
+        請用小學生程度的英文問問題，不要使用太難的單字，也不要用太長的句子。
+        讓他們可以用以下的單字來回答問題:
+
+        ${content}
+
+        `;
+}
+
+
+
+
+sets = [
   {
     "title": "冬季活動",
     "content": `
