@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>女僕 AI ♥ Ollama</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <style>
     * { box-sizing: border-box; }
     body, html {
@@ -61,22 +63,46 @@
       cursor: pointer;
     }
     button:hover { background: #388e3c; }
-    @media (max-width: 600px) {
-      #text-input { font-size: 18px; }
-      button { font-size: 18px; padding: 10px; }
+
+    /* 巢狀下拉選單支援 */
+    .dropdown-submenu {
+      position: relative;
+    }
+    .dropdown-submenu > .dropdown-menu {
+      top: 0;
+      left: 100%;
+      margin-top: -1px;
+      display: none;
+      position: absolute;
+    }
+    .dropdown-submenu:hover > .dropdown-menu {
+      display: block;
     }
   </style>
   <script src="content.js"></script>
 </head>
 <body>
-
 <div id="model-bar">
-  模型選擇：
-  <select id="model-selector"></select>
+  <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+    <!-- 左邊：模式選單 -->
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <label>模式：</label>
+      <div class="btn-group">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="prompt-button">模式</button>
+        <ul class="dropdown-menu" id="prompt-menu"></ul>
+      </div>
+    </div>
+
+    <!-- 右邊：模型選單 -->
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <label>模型：</label>
+      <select id="model-selector" class="form-select d-inline w-auto"></select>
+    </div>
+  </div>
 </div>
 
-<div id="chat-container"></div>
 
+<div id="chat-container"></div>
 <div id="input-area">
   <input type="text" id="text-input" placeholder="輸入或說話..." />
   <button onclick="sendMessage()">送出</button>
@@ -87,23 +113,85 @@
   const chatContainer = document.getElementById('chat-container');
   const textInput = document.getElementById('text-input');
   const modelSelector = document.getElementById('model-selector');
+  const promptButton = document.getElementById('prompt-button');
+  const promptMenu = document.getElementById('prompt-menu');
 
-  let chatHistory = [
-    { role: "system", content: "你是一個性感風騷、溫柔體貼的女僕，用繁中回答" }
-  ];
+  let chatHistory = [];// [{ role: "system", content: "" }];
   const MEMORY_LIMIT = 100;
 
-  // 🧁 載入模型選單
+const prompts = getPrompts();
+
+function clearHistory() {
+    chatHistory.splice(1);
+    chatContainer.innerHTML = "";
+  }
+    
+  function buildModelMenu() {
+    models.forEach(model => {
+      const option = document.createElement("option");
+      option.value = model.content;
+      option.textContent = model.title;
+      modelSelector.appendChild(option);
+    });
+    modelSelector.onchange = () => {clearHistory();};
+  }
+
+  function buildPromptMenu() {
+    prompts.forEach(p => {
+      if (Array.isArray(p.content)) {
+        const submenu = document.createElement('li');
+        submenu.classList.add('dropdown-submenu');
+
+        const link = document.createElement('a');
+        link.classList.add('dropdown-item', 'dropdown-toggle');
+        link.href = '#';
+        link.textContent = p.title;
+
+        const subMenuList = document.createElement('ul');
+        subMenuList.classList.add('dropdown-menu');
+
+        p.content.forEach(item => {
+          const subItem = document.createElement('li');
+          const subLink = document.createElement('a');
+          subLink.classList.add('dropdown-item');
+          subLink.href = '#';
+          subLink.textContent = item.title;
+          subLink.onclick = () => {
+            promptButton.textContent = p.title+' - '+item.title;
+            promptButton.prompt = item.content;
+            clearHistory();
+          };
+          subItem.appendChild(subLink);
+          subMenuList.appendChild(subItem);
+        });
+
+        submenu.appendChild(link);
+        submenu.appendChild(subMenuList);
+        promptMenu.appendChild(submenu);
+      } else {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.classList.add('dropdown-item');
+        a.href = '#';
+        a.textContent = p.title;
+        a.onclick = () => {
+          promptButton.textContent = p.title;
+          promptButton.prompt = p.content;
+            clearHistory();
+        };
+        li.appendChild(a);
+        promptMenu.appendChild(li);
+      }
+    });
+  }
+
   window.addEventListener('DOMContentLoaded', () => {
-    if (typeof models !== 'undefined') {
-      models.forEach(model => {
-        const option = document.createElement("option");
-        option.value = model.content;
-        option.textContent = model.title;
-        modelSelector.appendChild(option);
-      });
-    }
+    buildModelMenu();
+    buildPromptMenu();
+    promptButton.textContent = prompts[0].title;
+    promptButton.prompt = prompts[0].content;
   });
+
 
   function appendMessage(content, sender) {
     const div = document.createElement("div");
@@ -121,14 +209,16 @@
 
   async function sendMessage() {
     const input = textInput.value.trim();
-    if (!input) return;
+    // if (!input) return;
 
+    const model = modelSelector.value;
+    const prompt = promptButton.prompt;
+
+    chatHistory[0] = { role: "system", content: prompt };
     appendMessage(input, "user");
     chatHistory.push({ role: "user", content: input });
     textInput.value = "";
     trimHistory();
-
-    const model = modelSelector.value;
 
     try {
       const url = await window.getNgrokUrl();
@@ -189,56 +279,53 @@
     recognition.start();
   }
 </script>
-
 <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyBzHLZYRukwetX4dKBL2Xl1ia_BCICD5-A",
-      authDomain: "ngrok-sync-bcc82.firebaseapp.com",
-      projectId: "ngrok-sync-bcc82",
-      storageBucket: "ngrok-sync-bcc82.firebasestorage.app",
-      messagingSenderId: "632493678323",
-      appId: "1:632493678323:web:a2130690c3cc4fb24da186",
-      measurementId: "G-XZPWC2GJW5"
-    };
+  const firebaseConfig = {
+    apiKey: "AIzaSyBzHLZYRukwetX4dKBL2Xl1ia_BCICD5-A",
+    authDomain: "ngrok-sync-bcc82.firebaseapp.com",
+    projectId: "ngrok-sync-bcc82",
+    storageBucket: "ngrok-sync-bcc82.appspot.com",
+    messagingSenderId: "632493678323",
+    appId: "1:632493678323:web:a2130690c3cc4fb24da186",
+    measurementId: "G-XZPWC2GJW5"
+  };
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
-    async function getNgrokUrl() {
-      let url = localStorage.getItem("ngrok_url");
-      let valid = false;
+  async function getNgrokUrl() {
+    let url = localStorage.getItem("ngrok_url");
+    let valid = false;
 
-      if (url) {
-        try {
-          const res = await fetch(url + "/ping");
-          valid = res.ok;
-        } catch (e) {
-          valid = false;
-        }
+    if (url) {
+      try {
+        const res = await fetch(url + "/ping");
+        valid = res.ok;
+      } catch (e) {
+        valid = false;
       }
-
-      if (!valid) {
-        try {
-          const docRef = doc(db, "settings", "ngrok");
-          const snap = await getDoc(docRef);
-          if (snap.exists()) {
-            url = snap.data().url;
-            localStorage.setItem("ngrok_url", url);
-          }
-        } catch (e) {
-          console.error("抓 Firebase 失敗：", e);
-        }
-      }
-
-      return url;
     }
 
-    // expose globally for main script use
-    window.getNgrokUrl = getNgrokUrl;
-  </script>
+    if (!valid) {
+      try {
+        const docRef = doc(db, "settings", "ngrok");
+        const snap = await getDoc(docRef);
+        if (snap.exists()) {
+          url = snap.data().url;
+          localStorage.setItem("ngrok_url", url);
+        }
+      } catch (e) {
+        console.error("抓 Firebase 失敗：", e);
+      }
+    }
 
+    return url;
+  }
+
+  window.getNgrokUrl = getNgrokUrl;
+</script>
 </body>
 </html>
