@@ -43,11 +43,10 @@ function prompt_review(content)
 {
     return `
         你是一位英文老師，你要幫學生複習以下的的單字/例句，
-        一次只列出一個單字/例句，不要全部列出，依序列出，
-        內容要有:
+        1. 從頭依序列出來，一次只列出一個單字+1-2例句，不要一次列出所有的。
+        2. 內容不要作任何修改，也不要加任何說明文字。
             單字 (單字中文翻譯)
             例句 例句中文翻譯
-        要跟複習的內容一模一樣，不得作任何修改，也不要加任何說明文字。
 
         ${content}
 
@@ -62,9 +61,10 @@ function prompt_review(content)
 function prompt_dialog(content)
 {
     return `
-        你是一個英文老師，你在跟一個小學生練習英文對話。
-        請用小學生程度的英文問問題，不要使用太難的單字，也不要用太長的句子。
-        讓他們可以用以下的單字來回答問題:
+        你是一個英文老師，要跟一個小學生練習英文對話。
+        1. 請用小學生程度的英文問問題。
+        2. 不要出現中文，不要使用太難的單字，也不要用太長的句子。
+        3. 讓他們可以用以下的單字來回答問題。
 
         ${content}
 
@@ -73,319 +73,501 @@ function prompt_dialog(content)
 
 
 
+let sets = 
+[
+    {
+        "title": "冬日活動與學習時光",
+        "content": `
+            1. sledding (滑雪橇)  
+            I like sledding. 我喜歡滑雪橇。
 
-sets = [
-  {
-    "title": "冬季活動",
-    "content": `
-    1. sledding (滑雪橇)  
-        I like sledding. 我喜歡滑雪橇。
-    2. skating (溜冰)  
-        She loves skating in the winter. 她喜歡在冬天溜冰。
-    3. before (在...之前)  
-        We should eat before we go. 我們應該在出發前吃飯。
-    4. practice (練習)  
-        He practices playing the piano every day. 他每天練習彈鋼琴。
-    5. karate (空手道)  
-        I want to learn karate. 我想學空手道。
-    6. partner (夥伴)  
-        She is my partner in the game. 她是我在遊戲中的夥伴。
-    7. ski (滑雪)  
-        We will go skiing in the mountains. 我們將去山上滑雪。
-    8. snowboard (單板滑雪)  
-        Snowboarding is so much fun. 單板滑雪非常有趣。
-    9. student (學生)  
-        The student is reading a book. 那位學生正在讀書。
-    10. study (學習)  
-        I need to study for the test. 我需要為測驗學習。
-    11. swing (秋千)  
-        She is playing on the swing. 她在玩秋千。
-    12. yesterday (昨天)  
-        Yesterday was a great day. 昨天是個很棒的日子。
-    13. beach (海灘)  
-        We are going to the beach. 我們要去海灘。
-    14. lightning (閃電)  
-        There was lightning during the storm. 在暴風雨中有閃電。
-    15. thunder (雷聲)  
-        I am afraid of thunder. 我害怕雷聲。
-    16. hat (帽子)  
-        He is wearing a red hat. 他戴著一頂紅色的帽子。
-    17. swim trunks (泳褲)  
-        I need to buy swim trunks for the beach. 我需要為海灘買泳褲。
-    18. swimsuit (泳衣)  
-        She wore a new swimsuit to the pool. 她穿著新泳衣去游泳池。
-    19. sand (沙子)  
-        The sand is very warm. 沙子很溫暖。
-    20. pants (褲子)  
-        I need to buy new pants. 我需要買新褲子。
-    21. ocean (海洋)  
-        The ocean is very beautiful. 海洋非常美麗。
-    22. shorts (短褲)  
-        He is wearing shorts today. 他今天穿著短褲。
-    23. favorite (最喜歡的)  
-        Pizza is my favorite food. 比薩是我最喜歡的食物。
-    24. zookeeper (動物園管理員)  
-        The zookeeper feeds the animals every day. 動物園管理員每天餵食動物。
-    
-    範例:
-    1. sledding (滑雪橇)  
-        I like sledding. 我喜歡滑雪橇。
-    `
-  },
-  {
-    "title": "天氣與自然",
-    "content": `
-    1. breeze (微風)  
-        There is a nice breeze today. 今天有一陣宜人的微風。
-    2. breezy (有微風的)  
-        It is a breezy day at the beach. 今天海灘上有微風。
-    3. storm (暴風雨)  
-        A storm is coming tonight. 一場暴風雨今晚將來臨。
-    4. stormy (暴風雨的)  
-        The weather is stormy this afternoon. 今天下午天氣暴風雨。
-    5. weather (天氣)  
-        The weather is hot today. 今天的天氣很熱。
-    6. warm (溫暖的)  
-        It is a warm day. 今天是個溫暖的日子。
-    7. store (商店)  
-        I will go to the store later. 我待會要去商店。
-    8. tree (樹)  
-        The tree is tall. 那棵樹很高。
-    9. great big rock (大石頭)  
-        There is a great big rock in the park. 公園裡有一塊大石頭。
-    10. here (這裡)  
-        I am here at the park. 我在公園這裡。
-    11. fog (霧)  
-        The fog is thick today. 今天霧很濃。
-    12. foggy (有霧的)  
-        It is foggy in the morning. 早上有霧。
-    13. chill (寒冷)  
-        There is a chill in the air. 空氣中有一股寒冷感。
-    14. chilly (寒冷的)  
-        It is chilly outside. 外面很冷。
-    15. hooray (好極了)  
-        Hooray! We won the game! 好極了！我們贏了比賽！
-    16. cloud (雲)  
-        The cloud is white and fluffy. 雲朵是白色且蓬鬆的。
-    17. cloudy (多雲的)  
-        The sky is cloudy today. 今天的天空多雲。
-    18. rain (雨)  
-        I don't like the rain. 我不喜歡下雨。
-    19. rainy (下雨的)  
-        It is rainy this morning. 今天早上下雨了。
-    20. where (在哪裡)  
-        Where is the nearest store? 最近的商店在哪裡？
-    21. how (如何)  
-        How are you today? 你今天怎麼樣？
-    22. what (什麼)  
-        What is your name? 你叫什麼名字？
-    23. who (誰)  
-        Who is that person? 那個人是誰？
-    
-    範例:
-    1. breeze (微風)  
-        There is a nice breeze today. 今天有一陣宜人的微風。
-    `
-  },
-  {
-    "title": "四季與日常",
-    "content": `
-    1. spring (春天)  
-        Spring is my favorite season. 春天是我最喜歡的季節。
-    2. summer (夏天)  
-        Summer is hot and sunny. 夏天又熱又陽光明媚。
-    3. fall (秋天)  
-        Fall is when the leaves change color. 秋天是樹葉變色的時候。
-    4. winter (冬天)  
-        Winter is cold and snowy. 冬天又冷又下雪。
-    5. season (季節)  
-        There are four seasons in a year. 一年有四個季節。
-    6. breezy (有微風的)  
-        It is a breezy day. 今天有微風。
-    7. circus (馬戲團)  
-        We went to the circus last night. 我們昨晚去了馬戲團。
-    8. restaurant (餐廳)  
-        I like to eat at the restaurant. 我喜歡在餐廳吃飯。
-    9. theater (劇院)  
-        Let's go to the theater to watch a movie. 我們去劇院看電影吧。
-    10. yesterday (昨天)  
-        Yesterday was a busy day. 昨天是忙碌的一天。
-    11. airport (機場)  
-        We will meet at the airport. 我們會在機場見面。
-    12. hospital (醫院)  
-        She is in the hospital. 她在醫院。
-    13. library (圖書館)  
-        I borrowed a book from the library. 我從圖書館借了一本書。
-    14. mall (購物中心)  
-        We went shopping at the mall. 我們在購物中心購物。
-    15. amusement park (遊樂園)  
-        The amusement park is fun! 遊樂園很好玩！
-    
-    範例:
-    1. spring (春天)  
-        Spring is my favorite season. 春天是我最喜歡的季節。
-    `
-  },
-  {
-    "title": "動物與活動",
-    "content": `
-    1. nest (巢)  
-        The bird built a nest in the tree. 那隻鳥在樹上築了巢。
-    2. sloth (樹懶)  
-        A sloth moves very slowly. 樹懶移動非常慢。
-    3. popcorn (爆米花)  
-        We eat popcorn while watching movies. 我們在看電影時吃爆米花。
-    4. snail (蝸牛)  
-        The snail is moving slowly. 那隻蝸牛在慢慢爬行。
-    5. bite (咬)  
-        The dog bit the ball. 狗咬了球。
-    6. pet (寵物)  
-        I have a pet cat. 我有一隻寵物貓。
-    7. snowflake (雪花)  
-        Each snowflake is unique. 每一片雪花都是獨一無二的。
-    8. roller skating (溜直排輪)  
-        She loves roller skating in the park. 她喜歡在公園裡溜直排輪。
-    9. ice skating (溜冰)  
-        Ice skating is fun in the winter. 冬天溜冰很好玩。
-    10. branch (樹枝)  
-        The bird is sitting on the branch. 鳥正坐在樹枝上。
-    11. tree (樹)  
-        The tree is tall and green. 那棵樹又高又綠。
-    12. leaf (葉子)  
-        The leaf turned yellow in the fall. 這片葉子在秋天變黃了。
-    13. flower (花)  
-        The flowers are blooming in the garden. 花在花園裡開放。
-    
-    範例:
-    1. nest (巢)  
-        The bird built a nest in the tree. 那隻鳥在樹上築了巢。
-    `
-  },
-  {
-    "title": "方位與疑問",
-    "content": `
-    1. there (那裡)  
-        There is a park nearby. 那裡有個公園。
-    2. these (這些)  
-        These are my books. 這些是我的書。
-    3. those (那些)  
-        Those are my shoes. 那些是我的鞋子。
-    4. far (遠)  
-        The store is far from here. 商店離這裡很遠。
-    5. near (近)  
-        The school is near my house. 學校離我家很近。
-    6. here (這裡)  
-        I am here at the park. 我在公園這裡。
-    7. where (在哪裡)  
-        Where is the nearest store? 最近的商店在哪裡？
-    8. how (如何)  
-        How are you today? 你今天怎麼樣？
-    9. what (什麼)  
-        What is your name? 你叫什麼名字？
-    10. who (誰)  
-        Who is that person? 那個人是誰？
-    11. which (哪一個)  
-        Which one do you want? 你想要哪一個？
-    12. why (為什麼)  
-        Why are you sad? 你為什麼難過？
-    13. when (何時)  
-        When is your birthday? 你的生日是何時？
-    14. how many (多少)  
-        How many apples do you have? 你有多少顆蘋果？
-    15. how much (多少錢)  
-        How much is this shirt? 這件襯衫多少錢？
-    16. how old (幾歲)  
-        How old are you? 你幾歲了？
-    17. how long (多久)  
-        How long does it take to get there? 到那裡要多久？
-    18. how often (多常)  
-        How often do you go to the gym? 你多久去一次健身房？
-    19. how far (多遠)  
-        How far is it from here to the store? 從這裡到商店有多遠？
-    20. how big (多大)  
-        How big is your house? 你的房子有多大？
-    
-    範例:
-    1. there (那裡)  
-        There is a park nearby. 那裡有個公園。
-    `
-  },
-  {
-    "title": "家庭與居家",
-    "content": `
-    1. bathroom (浴室)  
-        I need to go to the bathroom. 我需要去浴室。
-    2. bedroom (臥室)  
-        My bedroom is upstairs. 我的臥室在樓上。
-    3. dining room (餐廳)  
-        We eat dinner in the dining room. 我們在餐廳吃晚餐。
-    4. garage (車庫)  
-        The car is in the garage. 車子停在車庫裡。
-    5. kitchen (廚房)  
-        She is cooking in the kitchen. 她在廚房做飯。
-    6. bathtub (浴缸)  
-        I like to relax in the bathtub. 我喜歡在浴缸裡放鬆。
-    7. dining table (餐桌)  
-        The dining table is made of wood. 餐桌是木製的。
-    8. dining chair (餐椅)  
-        We have six dining chairs. 我們有六把餐椅。
-    9. refrigerator (冰箱)  
-        The food is in the refrigerator. 食物在冰箱裡。
-    10. fridge (冰箱)  
-        The fridge is very cold. 冰箱非常冷。
-    
-    範例:
-    1. bathroom (浴室)  
-        I need to go to the bathroom. 我需要去浴室。
-    `
-  },
-  {
-    "title": "生活用品與家居",
-    "content": `
-    1. scooter (滑板車)  
-        He rides a scooter to school. 他騎滑板車上學。
-    2. look for (尋找)  
-        She is looking for her keys. 她在尋找她的鑰匙。
-    3. find (找到)  
-        I found my lost wallet. 我找到了丟失的錢包。
-    4. hope (希望)  
-        I hope to see you soon. 我希望很快見到你。
-    5. toilet (馬桶)  
-        The toilet is in the bathroom. 馬桶在浴室裡。
-    6. sink (水槽)  
-        The sink is next to the stove. 水槽在爐子旁邊。
-    7. fork (叉子)  
-        I need a fork to eat. 我需要一把叉子來吃東西。
-    8. spoon (湯匙)  
-        Use a spoon to eat the soup. 用湯匙來吃湯。
-    9. plate (盤子)  
-        The plate is on the table. 盤子在桌子上。
-    10. living room (客廳)  
-        We watch TV in the living room. 我們在客廳看電視。
-    11. sofa (沙發)  
-        The sofa is very comfortable. 沙發非常舒服。
-    12. couch (沙發)  
-        I like to nap on the couch. 我喜歡在沙發上打瞌睡。
-    13. armchair (扶手椅)  
-        The armchair is next to the window. 扶手椅在窗戶旁邊。
-    14. television (電視)  
-        We watch television every night. 我們每晚看電視。
-    15. TV (電視)  
-        The TV is broken. 電視壞了。
-    16. lamp (燈)  
-        The lamp is on the table. 燈在桌子上。
-    17. light (燈光)  
-        Turn off the light before bed. 睡覺前關掉燈。
-    18. window (窗戶)  
-        The window is open. 窗戶打開了。
-    19. curtain (窗簾)  
-        The curtain is blue. 窗簾是藍色的。
-    20. door (門)  
-        The door is closed. 門是關著的。
-    
-    範例:
-    1. scooter (滑板車)  
-        He rides a scooter to school. 他騎滑板車上學。
-    `
-  }
+            2. skating (滑冰)  
+            She is skating on the ice. 她正在冰上滑冰。
+
+            3. before (之前)  
+            I ate lunch before school. 我在上學前吃了午餐。
+
+            4. practice (練習)  
+            We practice karate every day. 我們每天練習空手道。
+
+            5. karate (空手道)  
+            He is good at karate. 他很擅長空手道。
+
+            6. partner (夥伴)  
+            My karate partner is very strong. 我的空手道夥伴很強壯。
+
+            7. ski (滑雪)  
+            They ski in the mountains. 他們在山上滑雪。
+
+            8. snowboard (滑雪板)  
+            I like to snowboard with my friends. 我喜歡和朋友一起滑雪板。
+
+            9. student (學生)  
+            She is a good student. 她是一個好學生。
+
+            10. study (讀書)  
+                I study English every night. 我每晚讀英文。
+
+            11. swing (盪鞦韆)  
+                We swing at the playground. 我們在遊樂場盪鞦韆。
+
+            12. yesterday (昨天)  
+                I went to the beach yesterday. 我昨天去了海邊。
+
+            13. beach (海灘)  
+                The beach is fun. 海灘很好玩。
+
+            14. lightning (閃電)  
+                I saw lightning in the sky. 我看到天空有閃電。
+
+            15. thunder (雷聲)  
+                Thunder is loud. 雷聲很大。
+
+            16. hat (帽子)  
+                I wear a hat on sunny days. 晴天我會戴帽子。
+
+            17. swim trunks (泳褲)  
+                He wears swim trunks to the pool. 他穿著泳褲去游泳池。
+
+            18. swimsuit (泳裝)  
+                She has a pink swimsuit. 她有一件粉紅色的泳裝。
+
+            19. sand (沙子)  
+                We played in the sand. 我們在沙子裡玩。
+
+            20. pants (長褲)  
+                I wear pants in winter. 我冬天穿長褲。
+
+            21. ocean (海洋)  
+                The ocean is very big. 海洋非常大。
+
+            22. shorts (短褲)  
+                He wears shorts in summer. 他夏天穿短褲。
+
+            23. favorite (最喜歡的)  
+                Ice cream is my favorite snack. 冰淇淋是我最喜歡的點心。
+
+            24. zookeeper (動物園管理員)  
+                The zookeeper feeds the lions. 動物園管理員餵獅子。
+
+            範例:  
+            1. sledding (滑雪橇)  
+            I like sledding. 我喜歡滑雪橇。
+            `
+    },
+    {
+        "title": "天氣與自然現象",
+        "content": `
+            1. breeze (微風)  
+            A breeze is blowing. 有微風吹來。
+
+            2. breezy (有微風的)  
+            Today is a breezy day. 今天是有微風的一天。
+
+            3. storm (暴風雨)  
+            The storm is coming. 暴風雨要來了。
+
+            4. stormy (暴風雨的)  
+            It’s a stormy night. 今晚有暴風雨。
+
+            5. weather (天氣)  
+            The weather is nice today. 今天天氣很好。
+
+            6. warm (溫暖的)  
+            This jacket is warm. 這件外套很溫暖。
+
+            7. store (商店)  
+            I go to the store with my mom. 我和媽媽一起去商店。
+
+            8. tree (樹)  
+            There is a big tree in the yard. 院子裡有一棵大樹。
+
+            9. great big rock (超大的岩石)  
+            We sat on a great big rock. 我們坐在一塊超大的岩石上。
+
+            10. here (這裡)  
+                I am here. 我在這裡。
+
+            11. fog (霧)  
+                The fog is thick. 霧很濃。
+
+            12. foggy (有霧的)  
+                It’s foggy this morning. 今天早上有霧。
+
+            13. chill (寒意)  
+                I feel a chill. 我覺得有點冷。
+
+            14. chilly (寒冷的)  
+                It’s chilly outside. 外面很冷。
+
+            15. hooray (萬歲)  
+                Hooray! We won! 萬歲！我們贏了！
+
+            16. cloud (雲)  
+                That cloud looks like a bunny. 那朵雲看起來像兔子。
+
+            17. cloudy (多雲的)  
+                It’s cloudy today. 今天多雲。
+
+            18. rain (雨)  
+                The rain is falling. 雨正在下。
+
+            19. rainy (下雨的)  
+                It’s a rainy afternoon. 這是一個下雨的下午。
+
+            20. where (哪裡)  
+                Where are you? 你在哪裡？
+
+            21. how (如何)  
+                How do you do that? 你怎麼做到的？
+
+            22. what (什麼)  
+                What is this? 這是什麼？
+
+            23. who (誰)  
+                Who is calling me? 誰在叫我？
+
+            範例:  
+            1. breeze (微風)  
+            A breeze is blowing. 有微風吹來。
+            `
+    },
+    {
+        "title": "四季與常見場所",
+        "content": `
+            1. spring (春天)  
+            Flowers bloom in spring. 春天花朵盛開。
+
+            2. summer (夏天)  
+            We go swimming in summer. 我們夏天去游泳。
+
+            3. fall (秋天)  
+            Leaves fall in fall. 秋天落葉飄落。
+
+            4. winter (冬天)  
+            It snows in winter. 冬天會下雪。
+
+            5. season (季節)  
+            There are four seasons. 有四個季節。
+
+            6. breezy (有微風的)  
+            It’s a breezy afternoon. 這是一個有微風的午後。
+
+            7. circus (馬戲團)  
+            We saw a circus show. 我們看了一場馬戲表演。
+
+            8. restaurant (餐廳)  
+            We eat at a restaurant. 我們在餐廳吃飯。
+
+            9. theater (戲院)  
+            The movie theater is big. 電影院很大。
+
+            10. yesterday (昨天)  
+                I saw a play yesterday. 我昨天看了一齣戲。
+
+            11. airport (機場)  
+                We went to the airport. 我們去了機場。
+
+            12. hospital (醫院)  
+                He is in the hospital. 他在醫院。
+
+            13. library (圖書館)  
+                I read books at the library. 我在圖書館看書。
+
+            14. mall (購物中心)  
+                Let’s go to the mall. 我們去購物中心吧。
+
+            15. amusement park (遊樂園)  
+                I love the amusement park. 我喜歡遊樂園。
+
+            範例:  
+            1. spring (春天)  
+            Flowers bloom in spring. 春天花朵盛開。
+            `
+    },
+    {
+        "title": "可愛動物與戶外事物",
+        "content": `
+            1. nest (鳥巢)  
+            There is a nest in the tree. 樹上有一個鳥巢。
+
+            2. sloth (樹懶)  
+            A sloth moves slowly. 樹懶動作很慢。
+
+            3. popcorn (爆米花)  
+            I like to eat popcorn. 我喜歡吃爆米花。
+
+            4. snail (蝸牛)  
+            The snail is crawling. 蝸牛正在爬行。
+
+            5. bite (咬)  
+            Don’t bite your pencil. 不要咬鉛筆。
+
+            6. pet (寵物)  
+            I have a pet cat. 我有一隻寵物貓。
+
+            7. snowflake (雪花)  
+            Each snowflake is unique. 每一片雪花都不同。
+
+            8. roller skating (溜冰鞋滑行)  
+            She loves roller skating. 她喜歡穿溜冰鞋滑行。
+
+            9. ice skating (溜冰)  
+            He is good at ice skating. 他很會溜冰。
+
+            10. in-line skates (直排輪)  
+                I got new in-line skates. 我有一雙新的直排輪鞋。
+
+            11. sled (雪橇)  
+                We rode the sled down the hill. 我們坐著雪橇從山坡滑下來。
+
+            12. branch (樹枝)  
+                The bird is on the branch. 鳥停在樹枝上。
+
+            13. tree (樹)  
+                That tree is very tall. 那棵樹很高。
+
+            14. leaf (樹葉)  
+                A leaf fell on the ground. 一片樹葉掉在地上。
+
+            15. flower (花)  
+                She picked a flower. 她摘了一朵花。
+
+            範例:  
+            1. nest (鳥巢)  
+            There is a nest in the tree. 樹上有一個鳥巢。
+            `
+    },
+    {
+        "title": "疑問詞與位置",
+        "content": `
+            1. there (那裡)  
+            The book is over there. 書在那邊。
+
+            2. these (這些)  
+            These are my toys. 這些是我的玩具。
+
+            3. those (那些)  
+            Those are her shoes. 那些是她的鞋子。
+
+            4. far (遠的)  
+            The mountain is far away. 山很遠。
+
+            5. near (近的)  
+            The store is near my house. 商店在我家附近。
+
+            6. here (這裡)  
+            Come here! 過來這裡！
+
+            7. where (哪裡)  
+            Where is my backpack? 我的背包在哪裡？
+
+            8. how (如何)  
+            How do you ride a bike? 你怎麼騎腳踏車？
+
+            9. what (什麼)  
+            What is your name? 你叫什麼名字？
+
+            10. who (誰)  
+                Who is your friend? 誰是你的朋友？
+
+            11. which (哪一個)  
+                Which color do you like? 你喜歡哪一個顏色？
+
+            12. why (為什麼)  
+                Why are you sad? 你為什麼難過？
+
+            13. when (什麼時候)  
+                When do you sleep? 你什麼時候睡覺？
+
+            14. how many (多少個)  
+                How many apples do you have? 你有多少顆蘋果？
+
+            15. how much (多少錢)  
+                How much is this toy? 這個玩具多少錢？
+
+            16. how old (幾歲)  
+                How old are you? 你幾歲？
+
+            17. how long (多久)  
+                How long is the movie? 電影有多長？
+
+            18. how often (多常)  
+                How often do you brush your teeth? 你多久刷一次牙？
+
+            19. how far (多遠)  
+                How far is the zoo? 動物園有多遠？
+
+            20. how big (多大)  
+                How big is your house? 你的房子多大？
+
+            範例:  
+            1. there (那裡)  
+            The book is over there. 書在那邊。
+            `
+    },
+    {
+        "title": "家居空間與家具",
+        "content": `
+            1. bathroom (浴室)  
+            I take a bath in the bathroom. 我在浴室洗澡。
+
+            2. bedroom (臥室)  
+            I sleep in my bedroom. 我在臥室睡覺。
+
+            3. dining room (餐廳)  
+            We eat in the dining room. 我們在餐廳吃飯。
+
+            4. garage (車庫)  
+            Dad parks the car in the garage. 爸爸把車停在車庫。
+
+            5. kitchen (廚房)  
+            Mom cooks in the kitchen. 媽媽在廚房煮飯。
+
+            6. bathtub (浴缸)  
+            The bathtub is full of water. 浴缸裡裝滿了水。
+
+            7. dining table (餐桌)  
+            Dinner is on the dining table. 晚餐在餐桌上。
+
+            8. dining chair (餐椅)  
+            I sit on the dining chair. 我坐在餐椅上。
+
+            9. refrigerator (冰箱)  
+            The refrigerator is cold. 冰箱很冷。
+
+            10. fridge (冰箱)  
+                I put milk in the fridge. 我把牛奶放進冰箱。
+
+            範例:  
+            1. bathroom (浴室)  
+            I take a bath in the bathroom. 我在浴室洗澡。
+            `
+    },
+    {
+        "title": "日常物品與客廳",
+        "content": `
+            1. scooter (滑板車)  
+            I ride my scooter to the park. 我騎滑板車去公園。
+
+            2. look for (尋找)  
+            I look for my lost toy. 我在找我丟失的玩具。
+
+            3. find (找到)  
+            I find my toy under the bed. 我在床下找到我的玩具。
+
+            4. hope (希望)  
+            I hope it doesn’t rain. 我希望不要下雨。
+
+            5. toilet (馬桶)  
+            The toilet is in the bathroom. 馬桶在浴室裡。
+
+            6. sink (洗手台)  
+            Wash your hands in the sink. 在洗手台洗手。
+
+            7. fork (叉子)  
+            I eat salad with a fork. 我用叉子吃沙拉。
+
+            8. spoon (湯匙)  
+            Use a spoon for the soup. 用湯匙喝湯。
+
+            9. plate (盤子)  
+            Put your food on the plate. 把食物放在盤子上。
+
+            10. living room (客廳)  
+                We watch TV in the living room. 我們在客廳看電視。
+
+            11. sofa (沙發)  
+                I sit on the sofa. 我坐在沙發上。
+
+            12. couch (沙發)  
+                The couch is soft. 沙發很柔軟。
+
+            13. armchair (單人椅)  
+                Grandpa sits on the armchair. 爺爺坐在單人椅上。
+
+            14. television / TV (電視)  
+                The television is loud. 電視聲音很大。
+
+            15. lamp (檯燈)  
+                I read with the lamp on. 我開著檯燈看書。
+
+            16. light (燈光)  
+                Turn off the light. 關掉燈。
+
+            17. window (窗戶)  
+                I look out the window. 我從窗戶看出去。
+
+            18. curtain (窗簾)  
+                Close the curtain. 拉上窗簾。
+
+            19. door (門)  
+                Open the door, please. 請開門。
+
+            範例:  
+            1. scooter (滑板車)  
+            I ride my scooter to the park. 我騎滑板車去公園。
+            `
+    },
+    {
+        "title": "動詞變化與感受表達",
+        "content": `
+            1. eat (吃) / ate (吃了)  
+            I eat apples every day. 我每天吃蘋果。  
+            I ate an apple yesterday. 我昨天吃了一顆蘋果。
+
+            2. talk (說話) / talked (說過話)  
+            We talk at school. 我們在學校說話。  
+            We talked last night. 我們昨晚聊過天。
+
+            3. play (玩) / played (玩過)  
+            They play soccer. 他們踢足球。  
+            They played soccer yesterday. 他們昨天踢了足球。
+
+            4. do (做) / did (做了)  
+            I do my homework. 我做作業。  
+            I did my homework yesterday. 我昨天做了作業。
+
+            5. watch (觀看) / watched (看過)  
+            She watches TV every evening. 她每天晚上看電視。  
+            She watched a movie last night. 她昨晚看了一部電影。
+
+            6. ride (騎) / rode (騎了)  
+            He rides his bike to school. 他騎腳踏車上學。  
+            He rode his bike yesterday. 他昨天騎了腳踏車。
+
+            7. fly (飛) / flew (飛了)  
+            Birds fly in the sky. 鳥兒在天空中飛翔。  
+            The bird flew away. 那隻鳥飛走了。
+
+            8. go (去) / went (去了)  
+            I go to the park every Sunday. 我每週日都去公園。  
+            I went to the zoo yesterday. 我昨天去了動物園。
+
+            9. visit (拜訪) / visited (拜訪過)  
+            We visit our grandma every week. 我們每週拜訪奶奶。  
+            We visited her last weekend. 我們上週末拜訪過她。
+
+            10. sleep (睡覺) / slept (睡著了)  
+                The baby sleeps a lot. 嬰兒睡很多。  
+                The baby slept well last night. 嬰兒昨晚睡得很好。
+
+            11. smile (微笑)  
+                She always smiles at me. 她總是對我微笑。
+
+            12. frown (皺眉)  
+                He frowned when he was angry. 他生氣的時候皺起眉頭。
+
+            13. scary (可怕的)  
+                That movie is so scary. 那部電影好可怕。
+
+            14. small (小的)  
+                This dog is small. 這隻狗很小。
+
+            範例:  
+            1. eat (吃) / ate (吃了)  
+            I eat apples every day. 我每天吃蘋果。  
+            I ate an apple yesterday. 我昨天吃了一顆蘋果。
+            `
+    }
 ]
