@@ -106,7 +106,7 @@
 <div id="input-area">
   <input type="text" id="text-input" placeholder="輸入或說話..." />
   <button onclick="sendMessage()">送出</button>
-  <button onclick="startVoice()">🎤</button>
+  <button id="voice-btn" onclick="toggleVoice()">🎤</button>
 </div>
 
 <script>
@@ -119,13 +119,14 @@
   let chatHistory = [];// [{ role: "system", content: "" }];
   const MEMORY_LIMIT = 100;
 
-const prompts = getPrompts();
+  const prompts = getPrompts();
 
-function clearHistory() {
-    chatHistory.splice(1);
-    chatContainer.innerHTML = "";
-  }
-    
+  function clearHistory() {
+      stopSpeaking();
+      chatHistory.splice(1);
+      chatContainer.innerHTML = "";
+    }
+      
   function buildModelMenu() {
     models.forEach(model => {
       const option = document.createElement("option");
@@ -199,6 +200,7 @@ function clearHistory() {
     div.textContent = content;
     chatContainer.appendChild(div);
     chatContainer.scrollTop = chatContainer.scrollHeight;
+    div.onclick = () => {speak(content)};
   }
 
   function trimHistory() {
@@ -247,7 +249,9 @@ function clearHistory() {
   }
 
   function speak(text) {
-    const msg = new SpeechSynthesisUtterance(text);
+    stopSpeaking();
+    const cleanText = text.replace(/\*.*?\*/g, ""); // 移除被 * 包圍的文字
+    const msg = new SpeechSynthesisUtterance(cleanText);
     msg.lang = "zh-TW";
     msg.rate = 1;
     msg.pitch = 1.2;
@@ -255,29 +259,69 @@ function clearHistory() {
     window.speechSynthesis.speak(msg);
   }
 
-  function startVoice() {
+  function pauseSpeaking() {window.speechSynthesis.pause();}
+
+  function resumeSpeaking() {window.speechSynthesis.resume();}
+
+  function stopSpeaking() {window.speechSynthesis.cancel();}
+
+  let isListening = false;
+  let recognition = null;
+
+  function toggleVoice() {
+    if (isListening) {
+      stopVoiceRecognition();
+    } else {
+      startVoiceRecognition();
+    }
+  }
+
+  function startVoiceRecognition() {
+    stopSpeaking(); // 停止 TTS
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SpeechRecognition) {
       alert("主人～這個瀏覽器不支援語音辨識唷♥（Chrome 最香）");
       return;
     }
 
-    const recognition = new SpeechRecognition();
+    recognition = new SpeechRecognition();
     recognition.lang = "zh-TW";
     recognition.interimResults = false;
 
     recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript;
       textInput.value = transcript;
-      sendMessage();
+      // sendMessage();
+      stopVoiceRecognition(); // 自動關閉聽取
+    };
+
+    recognition.onstart = () => {
+      isListening = true;
+      document.getElementById("voice-btn").style.backgroundColor = "red";
+      // console.log("開始聽話囉♥");
+    };
+
+    recognition.onend = () => {
+      isListening = false;
+      document.getElementById("voice-btn").style.backgroundColor = "";
+      // console.log("乖乖閉嘴囉～");
     };
 
     recognition.onerror = (event) => {
       alert("嗚嗚～語音辨識失敗了：" + event.error);
+      stopVoiceRecognition();
     };
 
     recognition.start();
   }
+
+  function stopVoiceRecognition() {
+    if (recognition && isListening) {
+      recognition.stop();
+    }
+  }
+
+
 </script>
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
