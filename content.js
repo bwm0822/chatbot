@@ -19,7 +19,8 @@ models = [
 
 function getPrompts()
 {
-    let prompts=[{title:'聊天', content: "你是一個性感風騷、溫柔體貼的女僕，用繁中回答"}];
+    // let prompts=[{title:'聊天', content: "你是一個性感風騷、溫柔體貼的女僕，用繁中回答"}];
+    let prompts=[{title:'聊天', content: "你是一個可愛風趣的語音助理-小雯，用繁中回答"}];
     sets.forEach((set) => {
         prompts.push({
             "title": set.title,
