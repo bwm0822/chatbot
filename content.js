@@ -30,6 +30,10 @@ function getPrompts()
                     "content": prompt_review(set.content)
                 },
                 {
+                    "title": `測驗`,
+                    "content": prompt_test(set.content)
+                },
+                {
                     "title": `對話`,
                     "content": prompt_dialog(set.content)
                 }
@@ -67,6 +71,33 @@ function prompt_dialog(content)
         3. 讓他們可以用以下的單字來回答問題。
 
         ${content}
+
+        `;
+}
+
+function prompt_test(content)
+{
+    return `
+        你是一位英文老師，正在進行單字測驗。請依照以下規則進行：
+
+        1. 每次只出一個單字的填空題。
+
+        2 .題目格式固定為：「____ (中文翻譯)」，不要出現英文單字或多餘的提示。
+
+        3. 題庫來自下方的單字與句子，每題只能用這些單字回答。
+
+        4. 學生輸入答案後，請判斷是否正確：
+
+        5. 如果正確，回應：「答對了！」，然後出下一題。
+
+        6. 如果錯誤，回應：「答錯了！」，給出正確答案，並重複同一題，直到學生答對為止。
+
+        7. 每題只能回答一次，直到答對為止，才會進入下一題。
+           
+        
+        ${content}
+
+
 
         `;
 }

@@ -118,7 +118,8 @@
 <div id="chat-container"></div>
 <div id="input-area">
   <input type="text" id="text-input" placeholder="輸入或說話..." />
-  <button onclick="sendMessage()">送出</button>
+  <!-- <button onclick="sendMessage()">送出</button> -->
+  <button onclick="send()">送出</button>
   <button id="voice-btn" onclick="toggleVoice()">🎤</button>
 </div>
 
@@ -131,6 +132,7 @@
 
   let chatHistory = [];// [{ role: "system", content: "" }];
   const MEMORY_LIMIT = 100;
+  let exam = {lines:[], i:0, errors:[]};
 
   const prompts = getPrompts();
 
@@ -190,6 +192,8 @@
 
             clearHistory();
             if(item.title=='複習') displayContent(item); // 顯示內容
+            if(item.title=='測驗') stratExam(item)
+            
           };
           subItem.appendChild(subLink);
           subMenuList.appendChild(subItem);
@@ -217,7 +221,7 @@
 
   function displayContent(data) {
       const contentLines = data.content.trim().split(/\n\s*\n/); // 用空行分割
-      const displayItems = contentLines.slice(1, -2); // 去掉第一個、最後兩個
+      const displayItems = contentLines.slice(1, -2); // 去掉第一個及最後兩個
 
       displayItems.forEach((item, index) => {
           // console.log(`項目 ${index + 1}:\n${item}\n`);
@@ -226,6 +230,73 @@
       });
   }
 
+  function stratExam(data)
+  {
+    exam.lines = extractVocabularyLines(data);
+    exam.i = 0;
+    exam.errors = [];
+    dispQuestion();
+  }
+
+  function dispQuestion() 
+  {
+    const line = exam.lines[exam.i].replace(/[a-zA-Z]/g, "_"); // 將英文字替換為 _
+    appendMessage(line, "bot");
+  }
+
+  function sendAnswer() 
+  {
+    const input = textInput.value.replace(/[/\\]/g,'').replace(/\s+/g, " ").trim().toLowerCase();
+    appendMessage(input, "user");
+    textInput.value = "";
+    let answer = exam.lines[exam.i].replace(/[^a-zA-Z'-]/g, " ").replace(/\s+/g, " ").trim().toLowerCase();
+    if (input !== answer) 
+    {
+      let reply=`答錯了，正確答案是：${answer}`
+      appendMessage(reply, "bot"); 
+      speak(reply);
+      exam.errors.push(exam.lines[exam.i]);
+    }
+    // else {appendMessage("答對了！", "bot");}
+    exam.i++;
+    if (exam.i < exam.lines.length) {dispQuestion();} 
+    else 
+    {
+      let reply = `測驗結束！正確率 : ${exam.lines.length-exam.errors.length} / ${exam.lines.length}`;
+      appendMessage(reply, "bot");
+      speak(reply);
+      if (exam.errors.length > 0) {
+        appendMessage("錯誤的單字：", "bot");
+        exam.errors.forEach((line, index) => {
+          appendMessage(`${line}`, "bot");
+        });
+      } else {
+        reply = `恭喜你全部答對了！`;
+        appendMessage(reply, "bot");
+        speak(reply);
+      }
+    }
+  }
+
+  function send()
+  {
+    if(exam.i < exam.lines.length) {sendAnswer();} 
+    else {sendMessage();}
+  }
+
+  function extractVocabularyLines(data) {
+    const lines = data.content.split('\n').map(line => line.trim());
+    const vocabLines = [];
+
+    for (let line of lines) {
+      // 確認格式為：數字. 單字 (中文)
+      if (/^\d+\.\s+\w[\w\s-]*\s*\([^)]+\)/.test(line)) {
+        vocabLines.push(line);
+      }
+    }
+    console.log("提取的單字：", vocabLines);
+    return vocabLines;
+  }
 
   window.addEventListener('DOMContentLoaded', () => {
     buildModelMenu();
