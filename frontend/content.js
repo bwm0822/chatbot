@@ -31,7 +31,7 @@ function getPrompts()
                 },
                 {
                     "title": `測驗`,
-                    "content": prompt_test(set.content)
+                    "content": prompt_review(set.content)
                 },
                 {
                     "title": `對話`,
@@ -53,11 +53,6 @@ function prompt_review(content)
             例句 例句中文翻譯
 
         ${content}
-
-        1.請參考範例:
-            範例:
-            單字號碼. 單字 (單字中文翻譯)
-                        例句 例句中文翻譯
     `;
 }
 
@@ -71,33 +66,6 @@ function prompt_dialog(content)
         3. 讓他們可以用以下的單字來回答問題。
 
         ${content}
-
-        `;
-}
-
-function prompt_test(content)
-{
-    return `
-        你是一位英文老師，正在進行單字測驗。請依照以下規則進行：
-
-        1. 每次只出一個單字的填空題。
-
-        2 .題目格式固定為：「____ (中文翻譯)」，不要出現英文單字或多餘的提示。
-
-        3. 題庫來自下方的單字與句子，每題只能用這些單字回答。
-
-        4. 學生輸入答案後，請判斷是否正確：
-
-        5. 如果正確，回應：「答對了！」，然後出下一題。
-
-        6. 如果錯誤，回應：「答錯了！」，給出正確答案，並重複同一題，直到學生答對為止。
-
-        7. 每題只能回答一次，直到答對為止，才會進入下一題。
-           
-        
-        ${content}
-
-
 
         `;
 }
@@ -180,10 +148,6 @@ let sets =
 
             24. zookeeper (動物園管理員)  
                 The zookeeper feeds the lions. 動物園管理員餵獅子。
-
-            範例:  
-            1. sledding (滑雪橇)  
-            I like sledding. 我喜歡滑雪橇。
             `
     },
     {
@@ -257,10 +221,6 @@ let sets =
 
             23. who (誰)  
                 Who is calling me? 誰在叫我？
-
-            範例:  
-            1. breeze (微風)  
-            A breeze is blowing. 有微風吹來。
             `
     },
     {
@@ -310,10 +270,6 @@ let sets =
 
             15. amusement park (遊樂園)  
                 I love the amusement park. 我喜歡遊樂園。
-
-            範例:  
-            1. spring (春天)  
-            Flowers bloom in spring. 春天花朵盛開。
             `
     },
     {
@@ -363,10 +319,6 @@ let sets =
 
             15. flower (花)  
                 She picked a flower. 她摘了一朵花。
-
-            範例:  
-            1. nest (鳥巢)  
-            There is a nest in the tree. 樹上有一個鳥巢。
             `
     },
     {
@@ -431,10 +383,6 @@ let sets =
 
             20. how big (多大)  
                 How big is your house? 你的房子多大？
-
-            範例:  
-            1. there (那裡)  
-            The book is over there. 書在那邊。
             `
     },
     {
@@ -469,10 +417,6 @@ let sets =
 
             10. fridge (冰箱)  
                 I put milk in the fridge. 我把牛奶放進冰箱。
-
-            範例:  
-            1. bathroom (浴室)  
-            I take a bath in the bathroom. 我在浴室洗澡。
             `
     },
     {
@@ -534,10 +478,6 @@ let sets =
 
             19. door (門)  
                 Open the door, please. 請開門。
-
-            範例:  
-            1. scooter (滑板車)  
-            I ride my scooter to the park. 我騎滑板車去公園。
             `
     },
     {
@@ -594,11 +534,6 @@ let sets =
 
             14. small (小的)  
                 This dog is small. 這隻狗很小。
-
-            範例:  
-            1. eat (吃) / ate (吃了)  
-            I eat apples every day. 我每天吃蘋果。  
-            I ate an apple yesterday. 我昨天吃了一顆蘋果。
             `
     }
 ]

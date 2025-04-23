@@ -38,30 +38,26 @@ fork, spoon, plate, living room, sofa, couch, armchair,
 television, TV, lamp, light, window, curtain, door,
 
 unit_8
-eat, ate, talk, talked, play, played, do, did, watch, watched, 
-ride, rode, fly, flew, go, went, visit, visited, sleep, slept,
+eat / ate, talk / talked, play / played, do / did, watch / watched, 
+ride / rode, fly / flew, go / went, visit / visited, sleep / slept,
 smile, frown, scary, small
-
-
 
 
 1. 將單元內的單字加入中文翻譯及例句(包含中文翻譯)
     內容範例:
     1. sledding (滑雪橇)  
         I like sledding. 我喜歡滑雪橇。
-2. 最後再加上一個範例，如下：
-    範例:
-        將第一個單字的全部內容當範例
-3.每個單元內的單字合在一起，每個單元的輸出格式為JSON格式，
+
+2.每個單元內的單字合在一起，每個單元的輸出格式為JSON格式，
     {
         "title":"根據單字的內容，取個可以代表性的名稱(用中文)",
-        "content": `
-                    內容
-                    範例
-                    `
+        "content": `內容`
     }
-4. 內容:為單元內的單字，前面要有號碼，包含中文翻譯及例句(包含中文翻譯)
-5. 每個單元的號碼都重新計算，從1開始編號
-6. 每個單元最後都要加上範例
-7. 所有單元合成一個陣列
-8. 讓我可以一鍵複製、貼上
+
+3. 內容:為單元內的單字，前面要有號碼，包含中文翻譯及例句(包含中文翻譯)
+
+4. 每個單元的號碼都重新計算，從1開始編號
+
+5. 所有單元合成一個陣列
+
+6. 讓我可以一鍵複製、貼上

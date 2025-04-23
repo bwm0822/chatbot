@@ -192,7 +192,7 @@
 
             clearHistory();
             if(item.title=='複習') displayContent(item); // 顯示內容
-            if(item.title=='測驗') stratExam(item)
+            if(item.title=='測驗') startExam(item)
             
           };
           subItem.appendChild(subLink);
@@ -217,11 +217,19 @@
         promptMenu.appendChild(li);
       }
     });
+
+    // 點外面時，關閉所有 submenu
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(menu => {
+        menu.style.display = 'none';
+      });
+    });
 }
 
   function displayContent(data) {
       const contentLines = data.content.trim().split(/\n\s*\n/); // 用空行分割
-      const displayItems = contentLines.slice(1, -2); // 去掉第一個及最後兩個
+      // const displayItems = contentLines.slice(1, -2); // 去掉第一個及最後兩個
+      const displayItems = contentLines.slice(1); // 去掉第一個
 
       displayItems.forEach((item, index) => {
           // console.log(`項目 ${index + 1}:\n${item}\n`);
@@ -230,7 +238,7 @@
       });
   }
 
-  function stratExam(data)
+  function startExam(data)
   {
     exam.lines = extractVocabularyLines(data);
     exam.i = 0;
