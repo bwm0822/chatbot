@@ -140,6 +140,7 @@
       stopSpeaking();
       chatHistory.splice(1);
       chatContainer.innerHTML = "";
+      resetExam();
     }
       
   function buildModelMenu() {
@@ -218,13 +219,23 @@
       }
     });
 
+
     // 點外面時，關閉所有 submenu
-    document.addEventListener('click', () => {
-      document.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(menu => {
-        menu.style.display = 'none';
+    if(this.isMobile())
+    {
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.dropdown-submenu .dropdown-menu').forEach(menu => {
+          menu.style.display = 'none';
+        });
       });
-    });
-}
+    }
+  }
+
+
+
+  function isMobile() {
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  }
 
   function displayContent(data) {
       const contentLines = data.content.trim().split(/\n\s*\n/); // 用空行分割
@@ -236,6 +247,13 @@
           // 或者你也可以將它加進網頁上 DOM 中唷～ sexy~
           appendMessage(item, "bot");
       });
+
+      chatContainer.scrollTop = 0;
+  }
+
+  function resetExam()
+  {
+    exam = {lines:[], i:0, errors:[]};
   }
 
   function startExam(data)
@@ -302,7 +320,7 @@
         vocabLines.push(line);
       }
     }
-    console.log("提取的單字：", vocabLines);
+    // console.log("提取的單字：", vocabLines);
     return vocabLines;
   }
 
