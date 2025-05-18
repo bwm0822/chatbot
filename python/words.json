@@ -1,0 +1,1064 @@
+[
+  {
+    "運動": [
+      {
+        "英": "basketball",
+        "中": "籃球",
+        "例句": "He plays basketball every weekend.",
+        "翻譯": "他每個週末都打籃球。"
+      },
+      {
+        "英": "baseball",
+        "中": "棒球",
+        "例句": "Baseball is a popular sport in Japan.",
+        "翻譯": "棒球是日本很受歡迎的運動。"
+      },
+      {
+        "英": "swimming",
+        "中": "游泳",
+        "例句": "I love swimming in the summer.",
+        "翻譯": "我喜歡在夏天游泳。"
+      },
+      {
+        "英": "ping-pong",
+        "中": "乒乓球",
+        "例句": "They played ping-pong after school.",
+        "翻譯": "他們放學後打乒乓球。"
+      },
+      {
+        "英": "tennis",
+        "中": "網球",
+        "例句": "She takes tennis lessons on Tuesdays.",
+        "翻譯": "她每週二上網球課。"
+      },
+      {
+        "英": "bowling",
+        "中": "保齡球",
+        "例句": "We went bowling last night.",
+        "翻譯": "我們昨晚去打保齡球。"
+      },
+      {
+        "英": "soccer",
+        "中": "足球",
+        "例句": "My brother plays soccer with his friends.",
+        "翻譯": "我弟弟跟朋友踢足球。"
+      },
+      {
+        "英": "volleyball",
+        "中": "排球",
+        "例句": "We played volleyball on the beach.",
+        "翻譯": "我們在海灘上打排球。"
+      },
+      {
+        "英": "running",
+        "中": "跑步",
+        "例句": "Running is good for your health.",
+        "翻譯": "跑步有益健康。"
+      },
+      {
+        "英": "dodgeball",
+        "中": "躲避球",
+        "例句": "They played dodgeball in PE class.",
+        "翻譯": "他們在體育課上玩躲避球。"
+      },
+      {
+        "英": "badminton",
+        "中": "羽毛球",
+        "例句": "I play badminton with my sister.",
+        "翻譯": "我和我妹妹打羽毛球。"
+      }
+    ]
+  },
+  {
+    "交通工具": [
+      {
+        "英": "taxi",
+        "中": "計程車",
+        "例句": "We took a taxi to the airport.",
+        "翻譯": "我們搭計程車去機場。"
+      },
+      {
+        "英": "bus",
+        "中": "公車",
+        "例句": "I go to school by bus every day.",
+        "翻譯": "我每天搭公車上學。"
+      },
+      {
+        "英": "train",
+        "中": "火車",
+        "例句": "The train arrives at 9 o’clock.",
+        "翻譯": "火車九點到站。"
+      },
+      {
+        "英": "boat",
+        "中": "船",
+        "例句": "They crossed the river by boat.",
+        "翻譯": "他們搭船渡河。"
+      },
+      {
+        "英": "scooter",
+        "中": "滑板車、小機車",
+        "例句": "My brother rides a scooter to work.",
+        "翻譯": "我哥哥騎滑板車（或小機車）去上班。"
+      },
+      {
+        "英": "motorcycle",
+        "中": "機車",
+        "例句": "He bought a new motorcycle last week.",
+        "翻譯": "他上週買了一台新機車。"
+      },
+      {
+        "英": "airplane",
+        "中": "飛機",
+        "例句": "We are flying to Japan by airplane.",
+        "翻譯": "我們將搭飛機去日本。"
+      },
+      {
+        "英": "helicopter",
+        "中": "直升機",
+        "例句": "The rescue team arrived by helicopter.",
+        "翻譯": "救援隊搭直升機抵達。"
+      },
+      {
+        "英": "ambulance",
+        "中": "救護車",
+        "例句": "The ambulance came quickly after the accident.",
+        "翻譯": "事故發生後救護車迅速趕到。"
+      },
+      {
+        "英": "bicycle",
+        "中": "腳踏車",
+        "例句": "She rides her bicycle in the park.",
+        "翻譯": "她在公園騎腳踏車。"
+      },
+      {
+        "英": "truck",
+        "中": "卡車",
+        "例句": "A big truck delivered the goods.",
+        "翻譯": "一輛大卡車運送了貨物。"
+      },
+      {
+        "英": "car",
+        "中": "汽車",
+        "例句": "My dad drives a red car.",
+        "翻譯": "我爸爸開一台紅色的汽車。"
+      }
+    ]
+  },
+  {
+    "地形": [
+      {
+        "英": "mountain",
+        "中": "山",
+        "例句": "We climbed the mountain last summer.",
+        "翻譯": "我們去年夏天爬了那座山。"
+      },
+      {
+        "英": "hill",
+        "中": "丘陵、小山",
+        "例句": "The house is on a hill overlooking the lake.",
+        "翻譯": "那間房子在山丘上俯瞰湖泊。"
+      },
+      {
+        "英": "valley",
+        "中": "山谷",
+        "例句": "A river runs through the valley.",
+        "翻譯": "一條河穿過山谷。"
+      },
+      {
+        "英": "plain",
+        "中": "平原",
+        "例句": "Cows were grazing on the plain.",
+        "翻譯": "牛群正在平原上吃草。"
+      },
+      {
+        "英": "desert",
+        "中": "沙漠",
+        "例句": "Camels live in the desert.",
+        "翻譯": "駱駝生活在沙漠中。"
+      },
+      {
+        "英": "island",
+        "中": "島嶼",
+        "例句": "They spent their honeymoon on a tropical island.",
+        "翻譯": "他們在熱帶島嶼度蜜月。"
+      },
+      {
+        "英": "peninsula",
+        "中": "半島",
+        "例句": "Italy is a peninsula in southern Europe.",
+        "翻譯": "義大利是位於南歐的半島。"
+      },
+      {
+        "英": "coast",
+        "中": "海岸",
+        "例句": "We walked along the coast and watched the sunset.",
+        "翻譯": "我們沿著海岸散步看夕陽。"
+      },
+      {
+        "英": "beach",
+        "中": "海灘",
+        "例句": "Children are playing on the beach.",
+        "翻譯": "孩子們正在海灘上玩耍。"
+      },
+      {
+        "英": "cliff",
+        "中": "懸崖",
+        "例句": "The castle stands on a cliff by the sea.",
+        "翻譯": "城堡矗立在海邊的懸崖上。"
+      },
+      {
+        "英": "cave",
+        "中": "洞穴",
+        "例句": "Bats live in the cave.",
+        "翻譯": "蝙蝠住在洞穴裡。"
+      },
+      {
+        "英": "volcano",
+        "中": "火山",
+        "例句": "The volcano erupted suddenly.",
+        "翻譯": "火山突然爆發了。"
+      },
+      {
+        "英": "river",
+        "中": "河流",
+        "例句": "The river flows through the forest.",
+        "翻譯": "那條河流穿過森林。"
+      },
+      {
+        "英": "lake",
+        "中": "湖泊",
+        "例句": "We swam in the lake during the summer.",
+        "翻譯": "我們夏天在湖裡游泳。"
+      },
+      {
+        "英": "waterfall",
+        "中": "瀑布",
+        "例句": "The waterfall was beautiful and loud.",
+        "翻譯": "瀑布又壯觀又吵。"
+      },
+      {
+        "英": "swamp",
+        "中": "沼澤",
+        "例句": "Alligators live in the swamp.",
+        "翻譯": "短吻鱷住在沼澤裡。"
+      },
+      {
+        "英": "forest",
+        "中": "森林",
+        "例句": "They camped in the forest.",
+        "翻譯": "他們在森林裡露營。"
+      },
+      {
+        "英": "glacier",
+        "中": "冰河",
+        "例句": "A glacier moves very slowly.",
+        "翻譯": "冰河移動得非常緩慢。"
+      },
+      {
+        "英": "canyon",
+        "中": "峽谷",
+        "例句": "The canyon was carved by a river.",
+        "翻譯": "峽谷是被河水沖蝕出來的。"
+      },
+      {
+        "英": "bay",
+        "中": "海灣",
+        "例句": "The boat anchored in the bay.",
+        "翻譯": "船停泊在海灣中。"
+      }
+    ]
+  },
+  {
+    "農場動物": [
+      {
+        "英": "cow",
+        "中": "乳牛",
+        "例句": "The cow gives us fresh milk.",
+        "翻譯": "乳牛提供我們新鮮的牛奶。"
+      },
+      {
+        "英": "pig",
+        "中": "豬",
+        "例句": "The pig is rolling in the mud.",
+        "翻譯": "豬在泥巴裡打滾。"
+      },
+      {
+        "英": "sheep",
+        "中": "綿羊",
+        "例句": "The sheep are eating grass in the field.",
+        "翻譯": "綿羊在田野裡吃草。"
+      },
+      {
+        "英": "goat",
+        "中": "山羊",
+        "例句": "The goat climbed the hill easily.",
+        "翻譯": "山羊輕鬆地爬上了山。"
+      },
+      {
+        "英": "chicken",
+        "中": "雞",
+        "例句": "The chickens are clucking loudly.",
+        "翻譯": "那些雞咯咯叫得很大聲。"
+      },
+      {
+        "英": "duck",
+        "中": "鴨子",
+        "例句": "The duck is swimming in the pond.",
+        "翻譯": "鴨子在池塘裡游泳。"
+      },
+      {
+        "英": "horse",
+        "中": "馬",
+        "例句": "She rides her horse every morning.",
+        "翻譯": "她每天早上騎馬。"
+      },
+      {
+        "英": "donkey",
+        "中": "驢子",
+        "例句": "The donkey carried heavy bags.",
+        "翻譯": "驢子背著沉重的袋子。"
+      },
+      {
+        "英": "turkey",
+        "中": "火雞",
+        "例句": "We saw a turkey on the farm.",
+        "翻譯": "我們在農場看到一隻火雞。"
+      },
+      {
+        "英": "goose",
+        "中": "鵝",
+        "例句": "The goose honked loudly at us.",
+        "翻譯": "那隻鵝對我們大聲鳴叫。"
+      }
+    ]
+  },
+  {
+    "野生動物": [
+      {
+        "英": "lion",
+        "中": "獅子",
+        "例句": "The lion is the king of the jungle.",
+        "翻譯": "獅子是叢林之王。"
+      },
+      {
+        "英": "tiger",
+        "中": "老虎",
+        "例句": "The tiger moved silently in the forest.",
+        "翻譯": "老虎在森林中悄悄行動。"
+      },
+      {
+        "英": "elephant",
+        "中": "大象",
+        "例句": "The elephant has a long trunk.",
+        "翻譯": "大象有一條長長的鼻子。"
+      },
+      {
+        "英": "monkey",
+        "中": "猴子",
+        "例句": "Monkeys love to swing on trees.",
+        "翻譯": "猴子喜歡在樹上盪來盪去。"
+      },
+      {
+        "英": "giraffe",
+        "中": "長頸鹿",
+        "例句": "The giraffe has a very long neck.",
+        "翻譯": "長頸鹿有很長的脖子。"
+      },
+      {
+        "英": "zebra",
+        "中": "斑馬",
+        "例句": "Zebras have black and white stripes.",
+        "翻譯": "斑馬有黑白相間的條紋。"
+      },
+      {
+        "英": "bear",
+        "中": "熊",
+        "例句": "The bear is catching fish in the river.",
+        "翻譯": "熊在河裡抓魚。"
+      },
+      {
+        "英": "wolf",
+        "中": "狼",
+        "例句": "Wolves live and hunt in packs.",
+        "翻譯": "狼成群結隊地生活與狩獵。"
+      },
+      {
+        "英": "hippopotamus",
+        "中": "河馬",
+        "例句": "The hippopotamus is resting in the water.",
+        "翻譯": "河馬在水中休息。"
+      },
+      {
+        "英": "crocodile",
+        "中": "鱷魚",
+        "例句": "The crocodile opened its huge mouth.",
+        "翻譯": "鱷魚張開牠的大嘴。"
+      }
+    ]
+  },
+  {
+    "身體": [
+      {
+        "英": "head",
+        "中": "頭",
+        "例句": "He hit his head on the door.",
+        "翻譯": "他撞到頭了。"
+      },
+      {
+        "英": "face",
+        "中": "臉",
+        "例句": "She washed her face with cold water.",
+        "翻譯": "她用冷水洗臉。"
+      },
+      {
+        "英": "eye",
+        "中": "眼睛",
+        "例句": "My left eye is itchy.",
+        "翻譯": "我的左眼癢癢的。"
+      },
+      {
+        "英": "ear",
+        "中": "耳朵",
+        "例句": "I can hear music with my ears.",
+        "翻譯": "我用耳朵聽音樂。"
+      },
+      {
+        "英": "nose",
+        "中": "鼻子",
+        "例句": "My nose is stuffy.",
+        "翻譯": "我鼻塞了。"
+      },
+      {
+        "英": "mouth",
+        "中": "嘴巴",
+        "例句": "Open your mouth and say “Ah”.",
+        "翻譯": "張開嘴巴說「啊」。"
+      },
+      {
+        "英": "tooth",
+        "中": "牙齒",
+        "例句": "I brush my teeth twice a day.",
+        "翻譯": "我每天刷兩次牙。"
+      },
+      {
+        "英": "tongue",
+        "中": "舌頭",
+        "例句": "He burned his tongue on the soup.",
+        "翻譯": "他喝湯時燙到舌頭。"
+      },
+      {
+        "英": "neck",
+        "中": "脖子",
+        "例句": "My neck hurts after sleeping.",
+        "翻譯": "我睡醒後脖子好痛。"
+      },
+      {
+        "英": "shoulder",
+        "中": "肩膀",
+        "例句": "She carried the bag on her shoulder.",
+        "翻譯": "她用肩膀扛著包包。"
+      },
+      {
+        "英": "arm",
+        "中": "手臂",
+        "例句": "I hurt my arm during basketball.",
+        "翻譯": "我打籃球時弄傷手臂。"
+      },
+      {
+        "英": "elbow",
+        "中": "手肘",
+        "例句": "He rested his elbow on the table.",
+        "翻譯": "他把手肘靠在桌上。"
+      },
+      {
+        "英": "hand",
+        "中": "手",
+        "例句": "Wash your hands before eating.",
+        "翻譯": "吃飯前要洗手。"
+      },
+      {
+        "英": "finger",
+        "中": "手指",
+        "例句": "I cut my finger while cooking.",
+        "翻譯": "我煮飯時割到手指了。"
+      },
+      {
+        "英": "chest",
+        "中": "胸膛",
+        "例句": "He crossed his arms over his chest.",
+        "翻譯": "他把手抱在胸前。"
+      },
+      {
+        "英": "stomach",
+        "中": "肚子",
+        "例句": "My stomach hurts.",
+        "翻譯": "我肚子痛。"
+      },
+      {
+        "英": "back",
+        "中": "背",
+        "例句": "He has pain in his back.",
+        "翻譯": "他背部有點痛。"
+      },
+      {
+        "英": "leg",
+        "中": "腿",
+        "例句": "She broke her leg while skiing.",
+        "翻譯": "她滑雪時摔斷了腿。"
+      },
+      {
+        "英": "knee",
+        "中": "膝蓋",
+        "例句": "My knee is sore after running.",
+        "翻譯": "我跑步後膝蓋很痛。"
+      },
+      {
+        "英": "foot",
+        "中": "腳",
+        "例句": "I stepped on a stone with my foot.",
+        "翻譯": "我用腳踩到石頭。"
+      },
+      {
+        "英": "toe",
+        "中": "腳趾",
+        "例句": "He stubbed his toe on the chair.",
+        "翻譯": "他踢到椅子撞到腳趾。"
+      }
+    ]
+  },
+  {
+    "教室": [
+      {
+        "英": "teacher",
+        "中": "老師",
+        "例句": "The teacher is writing on the board.",
+        "翻譯": "老師正在黑板上寫字。"
+      },
+      {
+        "英": "student",
+        "中": "學生",
+        "例句": "Each student has a textbook.",
+        "翻譯": "每位學生都有一本課本。"
+      },
+      {
+        "英": "desk",
+        "中": "書桌",
+        "例句": "I put my notebook on the desk.",
+        "翻譯": "我把筆記本放在書桌上。"
+      },
+      {
+        "英": "chair",
+        "中": "椅子",
+        "例句": "She sat on a small chair.",
+        "翻譯": "她坐在一張小椅子上。"
+      },
+      {
+        "英": "blackboard",
+        "中": "黑板",
+        "例句": "The teacher drew a cat on the blackboard.",
+        "翻譯": "老師在黑板上畫了一隻貓。"
+      },
+      {
+        "英": "chalk",
+        "中": "粉筆",
+        "例句": "We used white chalk to write.",
+        "翻譯": "我們用白色粉筆寫字。"
+      },
+      {
+        "英": "eraser",
+        "中": "板擦",
+        "例句": "He cleaned the board with an eraser.",
+        "翻譯": "他用板擦清理黑板。"
+      },
+      {
+        "英": "notebook",
+        "中": "筆記本",
+        "例句": "I wrote down the homework in my notebook.",
+        "翻譯": "我把作業寫在筆記本裡。"
+      },
+      {
+        "英": "textbook",
+        "中": "課本",
+        "例句": "This is our English textbook.",
+        "翻譯": "這是我們的英文課本。"
+      },
+      {
+        "英": "pencil",
+        "中": "鉛筆",
+        "例句": "She sharpened her pencil.",
+        "翻譯": "她削了鉛筆。"
+      },
+      {
+        "英": "pen",
+        "中": "原子筆",
+        "例句": "I signed my name with a blue pen.",
+        "翻譯": "我用藍色筆簽了名字。"
+      },
+      {
+        "英": "ruler",
+        "中": "尺",
+        "例句": "We use a ruler to draw straight lines.",
+        "翻譯": "我們用尺畫直線。"
+      },
+      {
+        "英": "bag",
+        "中": "書包",
+        "例句": "My bag is full of books.",
+        "翻譯": "我的書包裝滿了書。"
+      },
+      {
+        "英": "window",
+        "中": "窗戶",
+        "例句": "I opened the window for fresh air.",
+        "翻譯": "我打開窗戶透透氣。"
+      },
+      {
+        "英": "door",
+        "中": "門",
+        "例句": "He closed the door quietly.",
+        "翻譯": "他悄悄地關上門。"
+      },
+      {
+        "英": "clock",
+        "中": "時鐘",
+        "例句": "The clock shows it’s 3 PM.",
+        "翻譯": "時鐘顯示現在是下午三點。"
+      },
+      {
+        "英": "computer",
+        "中": "電腦",
+        "例句": "We use the computer for typing.",
+        "翻譯": "我們用電腦打字。"
+      },
+      {
+        "英": "projector",
+        "中": "投影機",
+        "例句": "The projector showed a big image.",
+        "翻譯": "投影機投出了大畫面。"
+      },
+      {
+        "英": "whiteboard",
+        "中": "白板",
+        "例句": "She wrote today’s date on the whiteboard.",
+        "翻譯": "她在白板上寫下今天的日期。"
+      },
+      {
+        "英": "marker",
+        "中": "白板筆",
+        "例句": "The marker ran out of ink.",
+        "翻譯": "白板筆沒墨水了。"
+      }
+    ]
+  },
+  {
+    "服飾": [
+      {
+        "英": "clothing",
+        "中": "服飾",
+        "例句": "I bought new clothing for the summer.",
+        "翻譯": "我為夏天買了新衣服。"
+      },
+      {
+        "英": "shirt",
+        "中": "襯衫",
+        "例句": "He is wearing a blue shirt today.",
+        "翻譯": "他今天穿著一件藍色的襯衫。"
+      },
+      {
+        "英": "jeans",
+        "中": "牛仔褲",
+        "例句": "She loves wearing jeans because they are comfortable.",
+        "翻譯": "她喜歡穿牛仔褲，因為很舒服。"
+      },
+      {
+        "英": "jacket",
+        "中": "夾克",
+        "例句": "It's cold outside, so I need to wear a jacket.",
+        "翻譯": "外面很冷，我需要穿夾克。"
+      },
+      {
+        "英": "shoes",
+        "中": "鞋子",
+        "例句": "These shoes are too tight for me.",
+        "翻譯": "這雙鞋對我來說太緊了。"
+      },
+      {
+        "英": "skirt",
+        "中": "裙子",
+        "例句": "She wore a red skirt to the party.",
+        "翻譯": "她穿了一條紅色的裙子。"
+      },
+      {
+        "英": "dress",
+        "中": "洋裝",
+        "例句": "She looks beautiful in that dress.",
+        "翻譯": "她穿那條洋裝看起來很美。"
+      },
+      {
+        "英": "sweater",
+        "中": "毛衣",
+        "例句": "He put on a sweater because it was chilly.",
+        "翻譯": "他因為有點冷而穿上了毛衣。"
+      },
+      {
+        "英": "hat",
+        "中": "帽子",
+        "例句": "She wore a big hat to protect herself from the sun.",
+        "翻譯": "她戴了一頂大帽子以保護自己免受陽光照射。"
+      },
+      {
+        "英": "scarf",
+        "中": "圍巾",
+        "例句": "He wrapped a scarf around his neck.",
+        "翻譯": "他把圍巾繞在脖子上。"
+      },
+      {
+        "英": "blouse",
+        "中": "女性襯衫",
+        "例句": "She wore a white blouse to the meeting.",
+        "翻譯": "她穿著一件白色的女性襯衫參加會議。"
+      }
+    ]
+  },
+  {
+    "食物": [
+      {
+        "英": "food",
+        "中": "食物",
+        "例句": "They served delicious food at the party.",
+        "翻譯": "他們在派對上提供了美味的食物。"
+      },
+      {
+        "英": "apple",
+        "中": "蘋果",
+        "例句": "She ate an apple for breakfast.",
+        "翻譯": "她早餐吃了一個蘋果。"
+      },
+      {
+        "英": "bread",
+        "中": "麵包",
+        "例句": "He bought fresh bread from the bakery.",
+        "翻譯": "他從麵包店買了新鮮的麵包。"
+      },
+      {
+        "英": "rice",
+        "中": "米飯",
+        "例句": "I like to eat rice with vegetables.",
+        "翻譯": "我喜歡吃米飯配蔬菜。"
+      },
+      {
+        "英": "pizza",
+        "中": "比薩",
+        "例句": "They ordered a large pizza for dinner.",
+        "翻譯": "他們點了一個大比薩當晚餐。"
+      },
+      {
+        "英": "chicken",
+        "中": "雞肉",
+        "例句": "Grilled chicken is her favorite dish.",
+        "翻譯": "烤雞肉是她最喜歡的菜。"
+      },
+      {
+        "英": "salad",
+        "中": "沙拉",
+        "例句": "She made a healthy salad for lunch.",
+        "翻譯": "她做了一個健康的沙拉當午餐。"
+      },
+      {
+        "英": "pasta",
+        "中": "義大利麵",
+        "例句": "He enjoys eating pasta with tomato sauce.",
+        "翻譯": "他喜歡吃番茄醬義大利麵。"
+      },
+      {
+        "英": "cake",
+        "中": "蛋糕",
+        "例句": "They had a chocolate cake for dessert.",
+        "翻譯": "他們用巧克力蛋糕當甜點。"
+      },
+      {
+        "英": "soup",
+        "中": "湯",
+        "例句": "She made a bowl of hot soup for dinner.",
+        "翻譯": "她做了一碗熱湯當晚餐。"
+      },
+      {
+        "英": "noodles",
+        "中": "麵",
+        "例句": "She loves eating noodles with beef.",
+        "翻譯": "她喜歡吃牛肉麵。"
+      },
+      {
+        "英": "sandwich",
+        "中": "三明治",
+        "例句": "He made a ham and cheese sandwich for lunch.",
+        "翻譯": "他做了一個火腿起司三明治當午餐。"
+      },
+      {
+        "英": "dumplings",
+        "中": "水餃",
+        "例句": "They ate dumplings with soy sauce for dinner.",
+        "翻譯": "他們吃了蘸醬油的水餃當晚餐。"
+      },
+      {
+        "英": "hotpot",
+        "中": "火鍋",
+        "例句": "We had hotpot for dinner with various meats and vegetables.",
+        "翻譯": "我們晚餐吃了火鍋，裡面有各種肉類和蔬菜。"
+      }
+    ]
+  },
+  {
+    "飲料": [
+      {
+        "英": "beverage",
+        "中": "飲料",
+        "例句": "She ordered a cold beverage with her lunch.",
+        "翻譯": "她點了一杯冷飲配她的午餐。"
+      },
+      {
+        "英": "juice",
+        "中": "果汁",
+        "例句": "Would you like some orange juice?",
+        "翻譯": "你想喝點柳橙汁嗎？"
+      },
+      {
+        "英": "soda",
+        "中": "汽水",
+        "例句": "He drank a can of soda during the movie.",
+        "翻譯": "他在看電影時喝了一罐汽水。"
+      },
+      {
+        "英": "tea",
+        "中": "茶",
+        "例句": "My grandmother drinks tea every afternoon.",
+        "翻譯": "我奶奶每天下午都喝茶。"
+      },
+      {
+        "英": "coffee",
+        "中": "咖啡",
+        "例句": "I need a cup of coffee to start my day.",
+        "翻譯": "我需要一杯咖啡來開始我的一天。"
+      },
+      {
+        "英": "milk",
+        "中": "牛奶",
+        "例句": "Kids often drink milk for strong bones.",
+        "翻譯": "小孩常喝牛奶來強健骨骼。"
+      },
+      {
+        "英": "smoothie",
+        "中": "冰沙",
+        "例句": "She made a banana smoothie for breakfast.",
+        "翻譯": "她早餐做了一杯香蕉冰沙。"
+      },
+      {
+        "英": "milkshake",
+        "中": "奶昔",
+        "例句": "He loves chocolate milkshakes.",
+        "翻譯": "他超愛巧克力奶昔。"
+      },
+      {
+        "英": "water",
+        "中": "水",
+        "例句": "It's important to drink enough water every day.",
+        "翻譯": "每天喝足夠的水很重要。"
+      },
+      {
+        "英": "lemonade",
+        "中": "檸檬水",
+        "例句": "Lemonade is refreshing on a hot day.",
+        "翻譯": "炎熱的天氣裡檸檬水很清爽。"
+      }
+    ]
+  },
+  {
+    "水果": [
+      {
+        "英": "apple",
+        "中": "蘋果",
+        "例句": "She eats an apple every morning.",
+        "翻譯": "她每天早上吃一顆蘋果。"
+      },
+      {
+        "英": "banana",
+        "中": "香蕉",
+        "例句": "Monkeys love to eat bananas.",
+        "翻譯": "猴子愛吃香蕉。"
+      },
+      {
+        "英": "orange",
+        "中": "柳橙",
+        "例句": "I drank a glass of orange juice.",
+        "翻譯": "我喝了一杯柳橙汁。"
+      },
+      {
+        "英": "grape",
+        "中": "葡萄",
+        "例句": "They picked grapes from the vineyard.",
+        "翻譯": "他們從葡萄園採了葡萄。"
+      },
+      {
+        "英": "watermelon",
+        "中": "西瓜",
+        "例句": "Watermelon is perfect for summer.",
+        "翻譯": "西瓜非常適合夏天吃。"
+      },
+      {
+        "英": "pineapple",
+        "中": "鳳梨",
+        "例句": "Pineapple is sweet and juicy.",
+        "翻譯": "鳳梨香甜多汁。"
+      },
+      {
+        "英": "strawberry",
+        "中": "草莓",
+        "例句": "She made a strawberry cake.",
+        "翻譯": "她做了一個草莓蛋糕。"
+      },
+      {
+        "英": "mango",
+        "中": "芒果",
+        "例句": "Mango is my favorite tropical fruit.",
+        "翻譯": "芒果是我最喜歡的熱帶水果。"
+      },
+      {
+        "英": "peach",
+        "中": "水蜜桃",
+        "例句": "He gave me a juicy peach.",
+        "翻譯": "他給了我一顆多汁的水蜜桃。"
+      },
+      {
+        "英": "kiwi",
+        "中": "奇異果",
+        "例句": "Kiwis are rich in vitamin C.",
+        "翻譯": "奇異果富含維他命C。"
+      }
+    ]
+  },
+  {
+    "動詞": [
+      {
+        "英": "eat",
+        "中": "吃",
+        "例句": "I like to eat pizza on weekends.",
+        "翻譯": "我喜歡在週末吃披薩。"
+      },
+      {
+        "英": "drink",
+        "中": "喝",
+        "例句": "She drinks coffee every morning.",
+        "翻譯": "她每天早上喝咖啡。"
+      },
+      {
+        "英": "run",
+        "中": "跑",
+        "例句": "He runs five kilometers every day.",
+        "翻譯": "他每天跑五公里。"
+      },
+      {
+        "英": "walk",
+        "中": "走路",
+        "例句": "We walk to school together.",
+        "翻譯": "我們一起走路上學。"
+      },
+      {
+        "英": "read",
+        "中": "閱讀",
+        "例句": "She is reading a new book.",
+        "翻譯": "她正在讀一本新書。"
+      },
+      {
+        "英": "write",
+        "中": "寫",
+        "例句": "I write emails at work.",
+        "翻譯": "我在工作時寫電子郵件。"
+      },
+      {
+        "英": "sleep",
+        "中": "睡覺",
+        "例句": "The baby sleeps for eight hours.",
+        "翻譯": "那個嬰兒睡八個小時。"
+      },
+      {
+        "英": "talk",
+        "中": "說話",
+        "例句": "They talk on the phone every night.",
+        "翻譯": "他們每天晚上講電話。"
+      },
+      {
+        "英": "listen",
+        "中": "聽",
+        "例句": "Listen to the teacher carefully.",
+        "翻譯": "仔細聽老師講話。"
+      },
+      {
+        "英": "watch",
+        "中": "觀看",
+        "例句": "We watch movies on Friday nights.",
+        "翻譯": "我們星期五晚上看電影。"
+      },
+      {
+        "英": "open",
+        "中": "打開",
+        "例句": "Please open the window.",
+        "翻譯": "請打開窗戶。"
+      },
+      {
+        "英": "close",
+        "中": "關閉",
+        "例句": "Close the door gently.",
+        "翻譯": "輕輕地關上門。"
+      },
+      {
+        "英": "buy",
+        "中": "買",
+        "例句": "I want to buy a new phone.",
+        "翻譯": "我想買一支新手機。"
+      },
+      {
+        "英": "sell",
+        "中": "賣",
+        "例句": "They sell fresh fruit at the market.",
+        "翻譯": "他們在市場賣新鮮水果。"
+      },
+      {
+        "英": "make",
+        "中": "製作",
+        "例句": "She makes delicious cakes.",
+        "翻譯": "她做的蛋糕很美味。"
+      },
+      {
+        "英": "do",
+        "中": "做",
+        "例句": "I have to do my homework.",
+        "翻譯": "我得做功課。"
+      },
+      {
+        "英": "go",
+        "中": "去",
+        "例句": "We go to the park every Sunday.",
+        "翻譯": "我們每個星期天都去公園。"
+      },
+      {
+        "英": "come",
+        "中": "來",
+        "例句": "Come here and look at this.",
+        "翻譯": "過來看看這個。"
+      },
+      {
+        "英": "play",
+        "中": "玩",
+        "例句": "The children play soccer after school.",
+        "翻譯": "孩子們放學後踢足球。"
+      },
+      {
+        "英": "help",
+        "中": "幫忙",
+        "例句": "Can you help me with this bag?",
+        "翻譯": "你可以幫我拿這個袋子嗎？"
+      }
+    ]
+  }
+]

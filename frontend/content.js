@@ -17,7 +17,7 @@ models = [
     },
 ]
 
-function getPrompts()
+function getPrompts_old()
 {
     // let prompts=[{title:'聊天', content: "你是一個性感風騷、溫柔體貼的女僕，用繁中回答"}];
     let prompts=[{title:'聊天', content: "你是一個可愛風趣的語音助理-小雯，用繁中回答"}];
@@ -42,6 +42,46 @@ function getPrompts()
     });
     return prompts;
 }
+
+async function getPrompts() {
+    try {
+        const response = await fetch('words.json');
+        const data = await response.json();
+
+        let words = data;
+        let prompts = [
+            { title: '聊天', content: "你是一個可愛風趣的語音助理-小雯，用繁中回答" }
+        ];
+
+        words.forEach((set) => {
+            prompts.push({
+                "title": set.title,
+                "content": [
+                    {
+                        "title": `複習`,
+                        // "content": prompt_review(set.content)
+                        "content": set.content
+                    },
+                    {
+                        "title": `測驗`,
+                        // "content": prompt_review(set.content)
+                        "content": set.content
+                    },
+                    // {
+                    //     "title": `對話`,
+                    //     "content": prompt_dialog(set.content)
+                    // }
+                ]
+            });
+        });
+
+        return prompts;
+    } catch (error) {
+        console.error('哎呀，讀取失敗了呢：', error);
+        return []; // 出錯時回傳空陣列
+    }
+}
+
 
 function prompt_review(content)
 {
