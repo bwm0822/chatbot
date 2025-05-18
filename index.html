@@ -134,7 +134,7 @@
   const MEMORY_LIMIT = 100;
   let exam = {lines:[], i:0, errors:[]};
 
-  const prompts = getPrompts();
+  // const prompts = getPrompts();
 
   function clearHistory() {
       stopSpeaking();
@@ -153,8 +153,12 @@
     modelSelector.onchange = () => {clearHistory();};
   }
 
-  function buildPromptMenu() {
+  async function buildPromptMenu() {
     promptMenu.innerHTML = ''; // 清空
+
+    let prompts = await getPrompts();
+
+    console.log(prompts)
 
     prompts.forEach(p => {
       if (Array.isArray(p.content)) {
@@ -229,6 +233,8 @@
         });
       });
     }
+
+    return prompts;
   }
 
 
@@ -237,7 +243,7 @@
     return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   }
 
-  function displayContent(data) {
+  function displayContent_old(data) {
       const contentLines = data.content.trim().split(/\n\s*\n/); // 用空行分割
       // const displayItems = contentLines.slice(1, -2); // 去掉第一個及最後兩個
       const displayItems = contentLines.slice(1); // 去掉第一個
@@ -245,6 +251,17 @@
       displayItems.forEach((item, index) => {
           // console.log(`項目 ${index + 1}:\n${item}\n`);
           // 或者你也可以將它加進網頁上 DOM 中唷～ sexy~
+          appendMessage(item, "bot");
+      });
+
+      chatContainer.scrollTop = 0;
+  }
+
+  function displayContent(data) {
+
+      data.content.forEach((content, index) => {
+          let item = `${index+1}. ${content['英']} ${content['中']}
+          ${content['例句']} ${content['翻譯']}`;
           appendMessage(item, "bot");
       });
 
@@ -310,7 +327,7 @@
     else {sendMessage();}
   }
 
-  function extractVocabularyLines(data) {
+  function extractVocabularyLines_old(data) {
     const lines = data.content.split('\n').map(line => line.trim());
     const vocabLines = [];
 
@@ -324,9 +341,22 @@
     return vocabLines;
   }
 
-  window.addEventListener('DOMContentLoaded', () => {
+  function extractVocabularyLines(data) {
+    console.log(data.content);
+    const vocabLines = [];  
+    data.content.forEach(item => {
+      if (item['英'] && item['中']) {
+        // 將英文字和中文組合成一行
+        const line = `${item['英']} (${item['中']})`;
+        vocabLines.push(line);
+      }
+    });
+    return vocabLines;
+  }
+
+  window.addEventListener('DOMContentLoaded', async() => {
     buildModelMenu();
-    buildPromptMenu();
+    let prompts= await buildPromptMenu();
     promptButton.textContent = prompts[0].title;
     promptButton.prompt = prompts[0].content;
   });
