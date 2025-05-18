@@ -158,8 +158,6 @@
 
     let prompts = await getPrompts();
 
-    console.log(prompts)
-
     prompts.forEach(p => {
       if (Array.isArray(p.content)) {
         const submenu = document.createElement('li');
@@ -243,20 +241,6 @@
     return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   }
 
-  function displayContent_old(data) {
-      const contentLines = data.content.trim().split(/\n\s*\n/); // 用空行分割
-      // const displayItems = contentLines.slice(1, -2); // 去掉第一個及最後兩個
-      const displayItems = contentLines.slice(1); // 去掉第一個
-
-      displayItems.forEach((item, index) => {
-          // console.log(`項目 ${index + 1}:\n${item}\n`);
-          // 或者你也可以將它加進網頁上 DOM 中唷～ sexy~
-          appendMessage(item, "bot");
-      });
-
-      chatContainer.scrollTop = 0;
-  }
-
   function displayContent(data) {
 
       data.content.forEach((content, index) => {
@@ -325,20 +309,6 @@
   {
     if(exam.i < exam.lines.length) {sendAnswer();} 
     else {sendMessage();}
-  }
-
-  function extractVocabularyLines_old(data) {
-    const lines = data.content.split('\n').map(line => line.trim());
-    const vocabLines = [];
-
-    for (let line of lines) {
-      // 確認格式為：數字. 單字 (中文)
-      if (/^\d+\.\s+\w[\w\s-]*\s*\([^)]+\)/.test(line)) {
-        vocabLines.push(line);
-      }
-    }
-    // console.log("提取的單字：", vocabLines);
-    return vocabLines;
   }
 
   function extractVocabularyLines(data) {
