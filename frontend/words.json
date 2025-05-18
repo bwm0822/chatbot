@@ -945,6 +945,12 @@
         "中": "奇異果",
         "例句": "Kiwis are rich in vitamin C.",
         "翻譯": "奇異果富含維他命C。"
+      },
+      {
+        "英": "carrot",
+        "中": "紅蘿蔔",
+        "例句": "Rabbits love to eat carrots.",
+        "翻譯": "兔子喜歡吃紅蘿蔔。"
       }
     ]
   },
@@ -1070,6 +1076,709 @@
         "中": "幫忙",
         "例句": "Can you help me with this bag?",
         "翻譯": "你可以幫我拿這個袋子嗎？"
+      }
+    ]
+  },
+  {
+    "title": "家",
+    "content": [
+      {
+        "英": "house",
+        "中": "房子",
+        "例句": "We live in a small house near the park.",
+        "翻譯": "我們住在公園附近的一間小房子。"
+      },
+      {
+        "英": "kitchen",
+        "中": "廚房",
+        "例句": "Mom is cooking dinner in the kitchen.",
+        "翻譯": "媽媽正在廚房煮晚餐。"
+      },
+      {
+        "英": "bedroom",
+        "中": "臥室",
+        "例句": "I like to read books in my bedroom.",
+        "翻譯": "我喜歡在我的臥室裡看書。"
+      },
+      {
+        "英": "bathroom",
+        "中": "浴室",
+        "例句": "The bathroom is next to the living room.",
+        "翻譯": "浴室在客廳旁邊。"
+      },
+      {
+        "英": "living room",
+        "中": "客廳",
+        "例句": "We watched a movie in the living room.",
+        "翻譯": "我們在客廳看了一部電影。"
+      },
+      {
+        "英": "sofa",
+        "中": "沙發",
+        "例句": "She sat on the sofa and drank coffee.",
+        "翻譯": "她坐在沙發上喝咖啡。"
+      },
+      {
+        "英": "table",
+        "中": "桌子",
+        "例句": "The food is on the dining table.",
+        "翻譯": "食物在餐桌上。"
+      },
+      {
+        "英": "chair",
+        "中": "椅子",
+        "例句": "He pulled out a chair for her.",
+        "翻譯": "他拉出一張椅子給她坐。"
+      },
+      {
+        "英": "door",
+        "中": "門",
+        "例句": "Please close the door when you leave.",
+        "翻譯": "離開時請關上門。"
+      },
+      {
+        "英": "window",
+        "中": "窗戶",
+        "例句": "She opened the window to get some air.",
+        "翻譯": "她打開窗戶透透氣。"
+      },
+      {
+        "英": "ceiling",
+        "中": "天花板",
+        "例句": "There is a fan on the ceiling.",
+        "翻譯": "天花板上有一個電風扇。"
+      },
+      {
+        "英": "floor",
+        "中": "地板",
+        "例句": "The baby is crawling on the floor.",
+        "翻譯": "嬰兒正在地板上爬行。"
+      },
+      {
+        "英": "stairs",
+        "中": "樓梯",
+        "例句": "She ran up the stairs quickly.",
+        "翻譯": "她快速跑上樓梯。"
+      },
+      {
+        "英": "lamp",
+        "中": "燈",
+        "例句": "I turned off the lamp before going to bed.",
+        "翻譯": "我在睡覺前關了燈。"
+      },
+      {
+        "英": "bookshelf",
+        "中": "書架",
+        "例句": "The bookshelf is full of books.",
+        "翻譯": "書架上滿是書。"
+      },
+      {
+        "英": "closet",
+        "中": "衣櫃",
+        "例句": "I keep my clothes in the closet.",
+        "翻譯": "我把衣服放在衣櫃裡。"
+      },
+      {
+        "英": "curtain",
+        "中": "窗簾",
+        "例句": "She opened the curtain to let in the sunlight.",
+        "翻譯": "她拉開窗簾讓陽光進來。"
+      },
+      {
+        "英": "balcony",
+        "中": "陽台",
+        "例句": "We had coffee on the balcony this morning.",
+        "翻譯": "我們今天早上在陽台喝咖啡。"
+      },
+      {
+        "英": "garage",
+        "中": "車庫",
+        "例句": "He parked the car in the garage.",
+        "翻譯": "他把車停在車庫裡。"
+      },
+      {
+        "英": "garden",
+        "中": "花園",
+        "例句": "There are many flowers in the garden.",
+        "翻譯": "花園裡有很多花。"
+      },
+      {
+        "英": "gate",
+        "中": "大門",
+        "例句": "Please lock the gate when you leave.",
+        "翻譯": "離開時請把大門鎖上。"
+      },
+      {
+        "英": "pillow",
+        "中": "枕頭",
+        "例句": "She hugged the pillow while sleeping.",
+        "翻譯": "她睡覺時抱著枕頭。"
+      },
+      {
+        "英": "blanket",
+        "中": "毯子",
+        "例句": "He covered himself with a warm blanket.",
+        "翻譯": "他蓋著一條溫暖的毯子。"
+      },
+      {
+        "英": "sink",
+        "中": "洗手槽",
+        "例句": "She washed her hands in the sink.",
+        "翻譯": "她在洗手槽洗手。"
+      },
+      {
+        "英": "mirror",
+        "中": "鏡子",
+        "例句": "He looked at himself in the mirror.",
+        "翻譯": "他照了照鏡子。"
+      },
+      {
+        "英": "refrigerator",
+        "中": "冰箱",
+        "例句": "We keep milk and eggs in the refrigerator.",
+        "翻譯": "我們把牛奶和雞蛋放在冰箱裡。"
+      },
+      {
+        "英": "stove",
+        "中": "爐子",
+        "例句": "She cooked soup on the stove.",
+        "翻譯": "她在爐子上煮湯。"
+      },
+      {
+        "英": "microwave",
+        "中": "微波爐",
+        "例句": "I heated my lunch in the microwave.",
+        "翻譯": "我用微波爐加熱了午餐。"
+      },
+      {
+        "英": "bathtub",
+        "中": "浴缸",
+        "例句": "He relaxed in the bathtub with bubbles.",
+        "翻譯": "他在泡泡浴缸裡放鬆。"
+      },
+      {
+        "英": "washing machine",
+        "中": "洗衣機",
+        "例句": "The washing machine is running now.",
+        "翻譯": "洗衣機現在正在運作中。"
+      },
+      {
+        "英": "toilet",
+        "中": "馬桶／廁所",
+        "例句": "He went to the toilet after breakfast.",
+        "翻譯": "他吃完早餐後上了廁所。"
+      }
+    ]
+  },
+  {
+    "title": "季節天氣",
+    "content": [
+      {
+        "英": "spring",
+        "中": "春天",
+        "例句": "Flowers bloom in spring.",
+        "翻譯": "春天花朵盛開。"
+      },
+      {
+        "英": "summer",
+        "中": "夏天",
+        "例句": "We go to the beach in summer.",
+        "翻譯": "我們夏天去海邊玩。"
+      },
+      {
+        "英": "autumn",
+        "中": "秋天",
+        "例句": "Leaves fall from the trees in autumn.",
+        "翻譯": "秋天樹葉會掉落。"
+      },
+      {
+        "英": "fall",
+        "中": "秋天（美式）",
+        "例句": "Fall is my favorite season.",
+        "翻譯": "秋天是我最喜歡的季節。"
+      },
+      {
+        "英": "winter",
+        "中": "冬天",
+        "例句": "It often snows in winter.",
+        "翻譯": "冬天常常下雪。"
+      },
+      {
+        "英": "sunny",
+        "中": "晴天的",
+        "例句": "It’s a sunny day today.",
+        "翻譯": "今天天氣晴朗。"
+      },
+      {
+        "英": "rainy",
+        "中": "下雨的",
+        "例句": "Don’t forget your umbrella on a rainy day.",
+        "翻譯": "下雨天別忘了帶傘。"
+      },
+      {
+        "英": "cloudy",
+        "中": "多雲的",
+        "例句": "The sky is cloudy but it won’t rain.",
+        "翻譯": "天空多雲，但不會下雨。"
+      },
+      {
+        "英": "snowy",
+        "中": "下雪的",
+        "例句": "The children are playing in the snowy yard.",
+        "翻譯": "孩子們在雪地裡玩耍。"
+      },
+      {
+        "英": "windy",
+        "中": "有風的",
+        "例句": "It’s too windy to fly a kite.",
+        "翻譯": "風太大了，不能放風箏。"
+      },
+      {
+        "英": "foggy",
+        "中": "有霧的",
+        "例句": "The road is hard to see on foggy mornings.",
+        "翻譯": "有霧的早晨看不清楚路。"
+      },
+      {
+        "英": "hot",
+        "中": "熱的",
+        "例句": "It’s very hot in July.",
+        "翻譯": "七月非常熱。"
+      },
+      {
+        "英": "cold",
+        "中": "冷的",
+        "例句": "I wear a coat when it’s cold.",
+        "翻譯": "天冷時我會穿外套。"
+      },
+      {
+        "英": "warm",
+        "中": "溫暖的",
+        "例句": "The weather is warm and perfect today.",
+        "翻譯": "今天天氣溫暖又剛剛好。"
+      },
+      {
+        "英": "cool",
+        "中": "涼爽的",
+        "例句": "I like the cool breeze in the evening.",
+        "翻譯": "我喜歡晚上的涼風。"
+      },
+      {
+        "英": "thunder",
+        "中": "雷",
+        "例句": "Did you hear the thunder last night?",
+        "翻譯": "你昨晚有聽到打雷嗎？"
+      },
+      {
+        "英": "lightning",
+        "中": "閃電",
+        "例句": "The lightning lit up the sky.",
+        "翻譯": "閃電照亮了天空。"
+      },
+      {
+        "英": "storm",
+        "中": "暴風雨",
+        "例句": "A big storm is coming tonight.",
+        "翻譯": "今晚將有一場大暴風雨。"
+      },
+      {
+        "英": "temperature",
+        "中": "溫度",
+        "例句": "The temperature dropped below zero.",
+        "翻譯": "溫度降到零度以下。"
+      },
+      {
+        "英": "forecast",
+        "中": "天氣預報",
+        "例句": "I checked the weather forecast before going out.",
+        "翻譯": "出門前我看了天氣預報。"
+      }
+    ]
+  },
+  {
+    "title": "口味",
+    "content": [
+      {
+        "英": "sweet",
+        "中": "甜的",
+        "例句": "This cake is very sweet and delicious.",
+        "翻譯": "這個蛋糕很甜又好吃。"
+      },
+      {
+        "英": "sour",
+        "中": "酸的",
+        "例句": "Lemons have a very sour taste.",
+        "翻譯": "檸檬的味道非常酸。"
+      },
+      {
+        "英": "salty",
+        "中": "鹹的",
+        "例句": "These chips are too salty for me.",
+        "翻譯": "這些洋芋片對我來說太鹹了。"
+      },
+      {
+        "英": "bitter",
+        "中": "苦的",
+        "例句": "Black coffee can taste bitter.",
+        "翻譯": "黑咖啡可能會有苦味。"
+      },
+      {
+        "英": "spicy",
+        "中": "辣的",
+        "例句": "I love spicy food like hot pot.",
+        "翻譯": "我喜歡吃像火鍋那樣的辣食物。"
+      },
+      {
+        "英": "bland",
+        "中": "淡而無味的",
+        "例句": "The soup tastes bland without salt.",
+        "翻譯": "湯沒加鹽喝起來很無味。"
+      },
+      {
+        "英": "savory",
+        "中": "鹹香的",
+        "例句": "She prefers savory snacks over sweet ones.",
+        "翻譯": "她比較喜歡鹹香的點心。"
+      },
+      {
+        "英": "tangy",
+        "中": "酸辣的",
+        "例句": "The sauce has a tangy flavor.",
+        "翻譯": "這醬料有種酸辣的味道。"
+      },
+      {
+        "英": "rich",
+        "中": "味道濃郁的",
+        "例句": "The chocolate cake is very rich and creamy.",
+        "翻譯": "那巧克力蛋糕非常濃郁又滑順。"
+      },
+      {
+        "英": "creamy",
+        "中": "奶油味的",
+        "例句": "This pasta has a creamy sauce.",
+        "翻譯": "這道義大利麵的醬汁很奶油味。"
+      },
+      {
+        "英": "smoky",
+        "中": "燻味的",
+        "例句": "I love the smoky flavor of grilled meat.",
+        "翻譯": "我喜歡烤肉的煙燻味。"
+      },
+      {
+        "英": "crispy",
+        "中": "酥脆的",
+        "例句": "The fried chicken is crispy and juicy.",
+        "翻譯": "炸雞又酥又多汁。"
+      },
+      {
+        "英": "juicy",
+        "中": "多汁的",
+        "例句": "The steak is so juicy and tender.",
+        "翻譯": "牛排非常多汁又軟嫩。"
+      },
+      {
+        "英": "chewy",
+        "中": "有嚼勁的",
+        "例句": "These noodles are very chewy.",
+        "翻譯": "這些麵條很有嚼勁。"
+      },
+      {
+        "英": "greasy",
+        "中": "油膩的",
+        "例句": "The burger is too greasy for my taste.",
+        "翻譯": "這漢堡對我來說太油了。"
+      },
+      {
+        "英": "umami",
+        "中": "鮮味的",
+        "例句": "Miso soup has a lot of umami flavor.",
+        "翻譯": "味噌湯有濃濃的鮮味。"
+      }
+    ]
+  },
+  {
+    "title": "日期",
+    "content": [
+      {
+        "英": "date",
+        "中": "日期",
+        "例句": "What is today’s date?",
+        "翻譯": "今天是幾號？"
+      },
+      {
+        "英": "day",
+        "中": "日／天",
+        "例句": "I go to school five days a week.",
+        "翻譯": "我一週上學五天。"
+      },
+      {
+        "英": "week",
+        "中": "星期／週",
+        "例句": "There are seven days in a week.",
+        "翻譯": "一週有七天。"
+      },
+      {
+        "英": "month",
+        "中": "月",
+        "例句": "My birthday is next month.",
+        "翻譯": "我的生日在下個月。"
+      },
+      {
+        "英": "year",
+        "中": "年",
+        "例句": "This year is going by quickly.",
+        "翻譯": "今年過得好快。"
+      },
+      {
+        "英": "Monday",
+        "中": "星期一",
+        "例句": "We have English class on Monday.",
+        "翻譯": "我們星期一有英文課。"
+      },
+      {
+        "英": "Tuesday",
+        "中": "星期二",
+        "例句": "I play soccer every Tuesday.",
+        "翻譯": "我每個星期二都踢足球。"
+      },
+      {
+        "英": "Wednesday",
+        "中": "星期三",
+        "例句": "Wednesday is the middle of the week.",
+        "翻譯": "星期三是一週的中間。"
+      },
+      {
+        "英": "Thursday",
+        "中": "星期四",
+        "例句": "I have piano lessons on Thursday.",
+        "翻譯": "我星期四有鋼琴課。"
+      },
+      {
+        "英": "Friday",
+        "中": "星期五",
+        "例句": "Friday is my favorite day.",
+        "翻譯": "星期五是我最喜歡的一天。"
+      },
+      {
+        "英": "Saturday",
+        "中": "星期六",
+        "例句": "We go shopping on Saturday.",
+        "翻譯": "我們星期六去購物。"
+      },
+      {
+        "英": "Sunday",
+        "中": "星期日",
+        "例句": "Sunday is a day to rest.",
+        "翻譯": "星期日是休息日。"
+      },
+      {
+        "英": "January",
+        "中": "一月",
+        "例句": "School starts in January.",
+        "翻譯": "學校一月開學。"
+      },
+      {
+        "英": "February",
+        "中": "二月",
+        "例句": "Valentine’s Day is in February.",
+        "翻譯": "情人節在二月。"
+      },
+      {
+        "英": "March",
+        "中": "三月",
+        "例句": "Spring begins in March.",
+        "翻譯": "三月開始春天了。"
+      },
+      {
+        "英": "April",
+        "中": "四月",
+        "例句": "It often rains in April.",
+        "翻譯": "四月常常下雨。"
+      },
+      {
+        "英": "May",
+        "中": "五月",
+        "例句": "May is a beautiful month.",
+        "翻譯": "五月是個美麗的月份。"
+      },
+      {
+        "英": "June",
+        "中": "六月",
+        "例句": "School ends in June.",
+        "翻譯": "六月學校放假了。"
+      },
+      {
+        "英": "July",
+        "中": "七月",
+        "例句": "July is very hot in Taiwan.",
+        "翻譯": "七月在台灣很熱。"
+      },
+      {
+        "英": "August",
+        "中": "八月",
+        "例句": "We travel in August.",
+        "翻譯": "我們八月去旅行。"
+      },
+      {
+        "英": "September",
+        "中": "九月",
+        "例句": "School starts again in September.",
+        "翻譯": "九月學校又開學了。"
+      },
+      {
+        "英": "October",
+        "中": "十月",
+        "例句": "Halloween is in October.",
+        "翻譯": "萬聖節在十月。"
+      },
+      {
+        "英": "November",
+        "中": "十一月",
+        "例句": "The weather gets cold in November.",
+        "翻譯": "十一月天氣變冷了。"
+      },
+      {
+        "英": "December",
+        "中": "十二月",
+        "例句": "Christmas is in December.",
+        "翻譯": "聖誕節在十二月。"
+      },
+      {
+        "英": "today",
+        "中": "今天",
+        "例句": "I’m busy today.",
+        "翻譯": "我今天很忙。"
+      },
+      {
+        "英": "tomorrow",
+        "中": "明天",
+        "例句": "We’ll go hiking tomorrow.",
+        "翻譯": "我們明天去爬山。"
+      },
+      {
+        "英": "yesterday",
+        "中": "昨天",
+        "例句": "I saw him yesterday.",
+        "翻譯": "我昨天看到他了。"
+      }
+    ]
+  },
+  {
+    "title": "介詞",
+    "content": [
+      {
+        "英": "in",
+        "中": "在⋯⋯裡面",
+        "例句": "The keys are in the bag.",
+        "翻譯": "鑰匙在包包裡。"
+      },
+      {
+        "英": "on",
+        "中": "在⋯⋯上面",
+        "例句": "The book is on the table.",
+        "翻譯": "書在桌子上。"
+      },
+      {
+        "英": "at",
+        "中": "在⋯⋯（地點、時間點）",
+        "例句": "She is at school.",
+        "翻譯": "她在學校。"
+      },
+      {
+        "英": "by",
+        "中": "在⋯⋯旁邊",
+        "例句": "He is standing by the car.",
+        "翻譯": "他站在車子旁邊。"
+      },
+      {
+        "英": "under",
+        "中": "在⋯⋯正下方",
+        "例句": "The cat is under the bed.",
+        "翻譯": "貓在床下。"
+      },
+      {
+        "英": "over",
+        "中": "在⋯⋯正上方",
+        "例句": "The lamp is over the table.",
+        "翻譯": "燈在桌子上方。"
+      },
+      {
+        "英": "above",
+        "中": "在⋯⋯之上",
+        "例句": "There’s a mirror above the sink.",
+        "翻譯": "洗手台上方有面鏡子。"
+      },
+      {
+        "英": "below",
+        "中": "在⋯⋯之下",
+        "例句": "The temperature is below zero.",
+        "翻譯": "溫度在零度以下。"
+      },
+      {
+        "英": "behind",
+        "中": "在⋯⋯後面",
+        "例句": "The school is behind the park.",
+        "翻譯": "學校在公園後面。"
+      },
+      {
+        "英": "in front of",
+        "中": "在⋯⋯前面",
+        "例句": "He parked the car in front of the house.",
+        "翻譯": "他把車停在房子前面。"
+      },
+      {
+        "英": "between",
+        "中": "在⋯⋯之間（兩者）",
+        "例句": "The ball is between the two boxes.",
+        "翻譯": "球在兩個箱子之間。"
+      },
+      {
+        "英": "among",
+        "中": "在⋯⋯之中（三者以上）",
+        "例句": "She was sitting among her friends.",
+        "翻譯": "她坐在朋友們中間。"
+      },
+      {
+        "英": "to",
+        "中": "向⋯⋯、到⋯⋯",
+        "例句": "I’m going to the market.",
+        "翻譯": "我要去市場。"
+      },
+      {
+        "英": "from",
+        "中": "從⋯⋯",
+        "例句": "He came from Japan.",
+        "翻譯": "他從日本來。"
+      },
+      {
+        "英": "with",
+        "中": "和⋯⋯一起／帶著⋯⋯",
+        "例句": "She is with her sister.",
+        "翻譯": "她和妹妹在一起。"
+      },
+      {
+        "英": "without",
+        "中": "沒有⋯⋯",
+        "例句": "I can’t live without you.",
+        "翻譯": "沒有你我活不下去。"
+      },
+      {
+        "英": "about",
+        "中": "關於⋯⋯",
+        "例句": "We talked about the movie.",
+        "翻譯": "我們談論那部電影。"
+      },
+      {
+        "英": "for",
+        "中": "為了⋯⋯／給⋯⋯",
+        "例句": "This gift is for you.",
+        "翻譯": "這是給你的禮物。"
+      },
+      {
+        "英": "of",
+        "中": "⋯⋯的",
+        "例句": "The cover of the book is blue.",
+        "翻譯": "書的封面是藍色的。"
       }
     ]
   }
